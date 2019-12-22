@@ -17,11 +17,11 @@ data['name'] = 'Amazon_masui@pitecan.com'
 data['seed'] = 'Amazon_seed'
 data['qas'] = 
   [
-    question: "小学生のとき好きだったのは?"
-    answers: ["まさこちゃん", "のりこちゃん", "みどりちゃん", "こづえちゃん"]
+    question: "コケて小指をケガしたのは?"
+    answers: ["北海道", "東京都", "神奈川県", "長野県", "奈良県"]
   ,
-    question: "https://gyazo.com/756acf45b7456be0a53146732f5a92ca.png"
-    answers: ["物理", "体育", "音楽", "英語", "書道"]
+    question: "威頼とは?"
+    answers: ["体育", "音楽", "物理", "英語", "書道"]
   ]
 
 # data = JSON.parse decodeURI(json)
