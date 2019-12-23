@@ -9,8 +9,8 @@
 #
 
 $ = require "./jquery.js"
-require "./md5.js"
-require "./crypt.js"
+crypt = require "./crypt.js"
+episodas = require "./episodas.js"
 
 data = {}
 data['name'] = 'Amazon_masui@pitecan.com'
@@ -34,7 +34,7 @@ cura = 0
 
 answer = []             # answer[q] = a ... q番目の質問の答がa番目である
 
-crypt = if typeof require == 'undefined' then exports else require('./crypt.js') # nodeでもブラウザJSでも動かす工夫
+# crypt = if typeof require == 'undefined' then exports else require('./crypt.js') # nodeでもブラウザJSでも動かす工夫
 
 selfunc = (q,a) -> # q番目の質問のa番目の選択肢をクリックしたとき呼ばれる関数
   ->
@@ -210,7 +210,9 @@ $ ->
     \nDASパタンを登録しますか?"
     if window.confirm(msg)
       $('#editor').css('display','none')
-      $('#dasmaker').css('display','block')
+      $('#das').css('display','block')
+
+      episodas.episodas(data);
       
       # save()
       # # localStorage経由でepisodasmakerにデータを渡す
@@ -255,3 +257,4 @@ $ ->
     
   maindiv()
   calcpass()
+

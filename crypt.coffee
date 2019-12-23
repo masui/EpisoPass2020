@@ -5,7 +5,8 @@
 # Last Modified: 2015/10/31 12:20:30
 #
 
-md5 = if typeof require == 'undefined' then exports else require('./md5.js')
+# md5 = if typeof require == 'undefined' then exports else require('./md5.js')
+md5 = require "./md5.js"
 
 #  文字種ごとに置換を行なうためのテーブル
 charset = [
@@ -57,7 +58,7 @@ utf2bytestr = (text) ->
 #
 # crypt(crypt(s,data),data) == s になる
 #
-exports.crypt = (str,seeddata) ->
+crypt = (str,seeddata) ->
   # seeddataのMD5の32バイト値の一部を取り出して数値化し、
   # その値にもとづいて文字置換を行なう
   hash = md5.MD5_hexhash(utf2bytestr(seeddata))
@@ -68,3 +69,5 @@ exports.crypt = (str,seeddata) ->
     n = parseInt(s,16)
     res += crypt_char(str[i],n+i)
   res
+
+exports.crypt = crypt
