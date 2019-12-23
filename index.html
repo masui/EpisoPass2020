@@ -9,25 +9,31 @@
   </head>
   
   <body>
-    <div class="title">
-      <div class="title2">
-         <span class="title">
-	   <a href="/">EpisoPass</a> - NAME
-	 </span>
-	 <input type="button" id="save" value="Save to server" style="float:right;height:35px;margin:0 3 0 3;">
-	 <input type="button" id="qa_json" value="Save to file" style="float:right;height:35px;margin:0 3 0 3;">
-	 <input type="button" id="das" value="DAS" style="float:right;height:35px;margin:0 3 0 3;">
+    <div id="editor"> <!-- 編集画面 -->
+      <div class="title">
+	<div class="title2">
+          <span class="title">
+	    <a href="/">EpisoPass</a> - NAME
+	  </span>
+	  <input type="button" id="save" value="Save to server" style="float:right;height:35px;margin:0 3 0 3;">
+	  <input type="button" id="qa_json" value="Save to file" style="float:right;height:35px;margin:0 3 0 3;">
+	  <input type="button" id="das" value="DAS" style="float:right;height:35px;margin:0 3 0 3;">
+	</div>
+      </div>
+      <p></p>
+      <div style="font-size:18;">
+	Seed: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;">
+	⇔
+	Password: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;">
+      </div>
+      <p></p>
+      
+      <div id="main">
       </div>
     </div>
-    <p></p>
-    <div style="font-size:18;">
-       Seed: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;">
-       ⇔
-       Password: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;">
-    </div>
-    <p></p>
 
-    <div id="main">
+    <div id="dasmaker" style="display:none;"> <!-- DAS作成画面 -->
+      DASMAKER
     </div>
 
     <!--

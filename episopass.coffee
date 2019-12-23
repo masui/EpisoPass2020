@@ -209,12 +209,15 @@ $ ->
     msg = "Draw-a-Secret(DAS)パタンを登録すると高速に答を選択できるようになります。
     \nDASパタンを登録しますか?"
     if window.confirm(msg)
-      save()
-      # localStorage経由でepisodasmakerにデータを渡す
-      localStorage.setItem 'name', name
-      localStorage.setItem 'seed', $('#seed').val()
-      localStorage.setItem 'selections', JSON.stringify(answer)
-      location.href = '/episodasmaker.html'
+      $('#editor').css('display','none')
+      $('#dasmaker').css('display','block')
+      
+      # save()
+      # # localStorage経由でepisodasmakerにデータを渡す
+      # localStorage.setItem 'name', name
+      # localStorage.setItem 'seed', $('#seed').val()
+      # localStorage.setItem 'selections', JSON.stringify(answer)
+      # location.href = '/episodasmaker.html'
     
   $("#apk").click ->
     save()
