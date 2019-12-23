@@ -4,7 +4,7 @@
 #  Toshiyuki Masui @ Pitecan.com
 #  Last Modified: 2015/10/31 19:12:53
 #  Modified       2018/02/23 17:24:33 for heroku
-#  Modified       2019/12/23 webpack的に
+#  Modified       2019/12/23 サーバを使わないように修正
 # 
 #  var json = '<%= @data.to_json %>';
 #
@@ -174,14 +174,6 @@ editor = (data) =>
     fileReader.readAsText file
     false
   
-  #save = () ->
-  #  data['seed'] = $('#seed').val()
-  #  $.ajax
-  #    type: "POST"
-  #    async: true
-  #    url: "/#{name}/__write"
-  #    data: "data=#{JSON.stringify(data)}"
-  
   init = ()  ->
     $('#seed').keyup (e) ->
       data['seed'] = $('#seed').val()
@@ -191,13 +183,10 @@ editor = (data) =>
     #$("#save").click ->
     #  save()
     $("#das").click ->
-      msg = "Draw-a-Secret(DAS)パタンを登録すると高速に答を選択できるようになります。
-      \nDASパタンを登録しますか?"
-      if window.confirm(msg)
-        $('#editor').css('display','none')
-        $('#das').css('display','block')
+      $('#editor').css('display','none')
+      $('#das').css('display','block')
   
-        episodas.episodas(data);
+      episodas.episodas(data);
         
         # save()
         # # localStorage経由でepisodasmakerにデータを渡す
@@ -206,14 +195,6 @@ editor = (data) =>
         # localStorage.setItem 'selections', JSON.stringify(answer)
         # location.href = '/episodasmaker.html'
       
-    #$("#apk").click ->
-    #  save()
-    #  location.href = "/#{name}.apk"
-  
-    #if ! location.href.match(/^http/)
-    #  $('#save').css 'display', 'none'
-    #  $('#apk').css 'display','none'
-
     $('#seed').val data.seed
       
     $('#qa_json').click (event) ->
