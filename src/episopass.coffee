@@ -34,8 +34,6 @@ cura = 0
 
 answer = []             # answer[q] = a ... q番目の質問の答がa番目である
 
-# crypt = if typeof require == 'undefined' then exports else require('./crypt.js') # nodeでもブラウザJSでも動かす工夫
-
 selfunc = (q,a) -> # q番目の質問のa番目の選択肢をクリックしたとき呼ばれる関数
   ->
     answer[q] = a

@@ -5,15 +5,15 @@ install:
 pack:
 	webpack
 embed:
-	ruby embed.rb index.html > episopass.html
+	ruby embed.rb src/index.html > dist/episopass.html
 
 compile:
-	coffee -c episopass.coffee
-	coffee -c crypt.coffee
+	coffee -c src/episopass.coffee
+	coffee -c src/crypt.coffee
 
 clean:
 	rm -r -f bundle.js
 
 scp:
-	scp episopass.html pitecan.com:/www/www.pitecan.com/tmp
+	scp dist/episopass.html pitecan.com:/www/www.pitecan.com/tmp
 
