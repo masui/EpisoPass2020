@@ -174,13 +174,13 @@ editor = (data) =>
     fileReader.readAsText file
     false
   
-  save = () ->
-    data['seed'] = $('#seed').val()
-    $.ajax
-      type: "POST"
-      async: true
-      url: "/#{name}/__write"
-      data: "data=#{JSON.stringify(data)}"
+  #save = () ->
+  #  data['seed'] = $('#seed').val()
+  #  $.ajax
+  #    type: "POST"
+  #    async: true
+  #    url: "/#{name}/__write"
+  #    data: "data=#{JSON.stringify(data)}"
   
   init = ()  ->
     $('#seed').keyup (e) ->
@@ -188,8 +188,8 @@ editor = (data) =>
       calcpass()
     $('#pass').keyup (e) ->
       calcseed()
-    $("#save").click ->
-      save()
+    #$("#save").click ->
+    #  save()
     $("#das").click ->
       msg = "Draw-a-Secret(DAS)パタンを登録すると高速に答を選択できるようになります。
       \nDASパタンを登録しますか?"
@@ -206,18 +206,15 @@ editor = (data) =>
         # localStorage.setItem 'selections', JSON.stringify(answer)
         # location.href = '/episodasmaker.html'
       
-    $("#apk").click ->
-      save()
-      location.href = "/#{name}.apk"
+    #$("#apk").click ->
+    #  save()
+    #  location.href = "/#{name}.apk"
   
-    if ! location.href.match(/^http/)
-      $('#save').css 'display', 'none'
-      $('#apk').css 'display','none'
+    #if ! location.href.match(/^http/)
+    #  $('#save').css 'display', 'none'
+    #  $('#apk').css 'display','none'
 
-    # alert "#seed = "
-    # alert $('#seed').id
     $('#seed').val data.seed
-    # alert $('#seed').val()
       
     $('#qa_json').click (event) ->
       event.preventDefault()
