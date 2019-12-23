@@ -8,7 +8,7 @@ embed:
 	ruby embed.rb src/index.html > dist/episopass.html
 
 compile:
-	coffee -c src/episopass.coffee
+	coffee -c src/editor.coffee
 	coffee -c src/crypt.coffee
 
 clean:

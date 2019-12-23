@@ -1,35 +1,21 @@
 #
-#  episopass.coffee - EpisoPass本体
+#  editor.coffee - EpisoPass問題編集画面
 # 
 #  Toshiyuki Masui @ Pitecan.com
 #  Last Modified: 2015/10/31 19:12:53
 #  Modified       2018/02/23 17:24:33 for heroku
+#  Modified       2019/12/23 webpack的に
 # 
 #  var json = '<%= @data.to_json %>';
 #
 
-editor = () =>
+editor = (data) =>
   $ = require "./jquery.js"
   crypt = require "./crypt.js"
   episodas = require "./episodas.js"
   
-  data = {}
-  data['name'] = 'Amazon_masui@pitecan.com'
-  data['seed'] = 'Amazon_seed'
-  data['qas'] = 
-    [
-      question: "コケて小指をケガしたのは?"
-      answers: ["北海道", "東京都", "神奈川県", "長野県", "奈良県"]
-    ,
-      question: "威頼とは?"
-      answers: ["体育", "音楽", "物理", "英語", "書道"]
-    ]
-  
-  # data = JSON.parse decodeURI(json)
-   
   name = data.name
-  
-  qas = data['qas']
+  qas = data.qas
   curq = 0
   cura = 0
   
