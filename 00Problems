@@ -1,0 +1,23 @@
+* EpisoQからepisopass.htmlにデータを渡すにはどうすれば良いか
+  引数にするには長すぎる
+
+  chrome.storageなら大丈夫か?
+
+  easy.htmlを修正する必要がある
+
+* EpisoDASのHTMLファイルをどうやって生成する?
+  jQueryとかmd5とかを含む必要あり
+
+  ヒアドキュメントをつかえばいい
+  html = `
+<html>
+...
+</html>
+`
+
+  webpackはJSから呼べるの?
+  EpisoPass.htmlにwebpackを含めるのはイヤかも
+
+
+https://masui.github.io/EpisoQ/?qa=https://scrapbox.io/api/code/masui/%E7%9C%8C%E5%90%8D%E3%81%AA%E3%81%9E%E3%81%AA%E3%81%9E/episopass.js
+

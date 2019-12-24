@@ -9,6 +9,8 @@
 // var exports = {};
 
 dasmaker = function(data,name,seed,selections){
+    alert(data['qas']);
+    
     var width, height;
     var qas, answers;
     var mousediv = null;
@@ -86,18 +88,25 @@ dasmaker = function(data,name,seed,selections){
 	 */
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
 
-	/* これでダウンロードリンクができる
+	// これでダウンロードリンクができる
 	var a = $('<a>');
-	a.attr('download',`${name}.html`);
+	// a.attr('download',`${name}.html`);
+	a.attr('download',`das.html`);
 	a.text('エクスポート');
 	a.css('margin',10);
 
-	var blob = new Blob([ dastemplate.dastemplate ], { type: "text/html" });
+	lines = dastemplate.dastemplate.split(/\n/);
+	for(let i=0;i<lines.length;i++){
+	    if(lines[i].match(/REPLACE_THIS_LINE/)){
+		lines[i] = `const data = ${JSON.stringify(data)}`;
+	    }
+	}
+
+	var blob = new Blob([ lines.join("\n") ], { type: "text/html" });
 	var url = window.webkitURL.createObjectURL(blob);
 	a.attr('href',url)
 	
 	$('body').append(a);
-	 */
 
 	alert("移動します");
 
