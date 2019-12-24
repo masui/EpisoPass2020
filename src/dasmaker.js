@@ -70,6 +70,35 @@ dasmaker = function(data,name,seed,selections){
 	
 	alert('DASデータを生成しました。');
 	
+	// Data URI scheme
+	str = JSON.stringify(data) ;
+
+	/*
+	var datatext = "data:application/json;base64," +
+		btoa(unescape(encodeURIComponent(str)));
+	var a = $('<a>');
+	a.attr('href',datatext);
+	a.text('JSON data');
+	a.css('margin',10);
+	$('body').append(a);
+	 */
+	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
+
+	/* これでダウンロードリンクができる
+	var a = $('<a>');
+	a.attr('download',`${name}.html`);
+	a.text('エクスポート');
+	a.css('margin',10);
+
+	var blob = new Blob([ dastemplate.dastemplate ], { type: "text/html" });
+	var url = window.webkitURL.createObjectURL(blob);
+	a.attr('href',url)
+	
+	$('body').append(a);
+	 */
+
+	alert("移動します");
+
 	episodas.episodas(data);
     }
     

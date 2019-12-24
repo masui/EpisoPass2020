@@ -5,7 +5,7 @@ install:
 pack:
 	webpack
 embed:
-	ruby embed.rb src/index.html > dist/episopass.html
+	ruby bin/embed.rb src/index.html > dist/episopass.html
 
 compile:
 	coffee -c src/editor.coffee

@@ -1,0 +1,26 @@
+{
+  "name": "Amazon_masui@pitecan.com",
+  "seed": "Amazonseed_123456",
+  "qas": [
+    {
+      "question": "コケて小指をケガしたのは?",
+      "answers": [
+        "北海道",
+        "東京",
+        "神奈川",
+        "長野",
+        "奈良"
+      ]
+    },
+    {
+      "question": "威頼とは?",
+      "answers": [
+        "体育",
+        "音楽",
+        "物理",
+        "英語",
+        "書道"
+      ]
+    }
+  ]
+}
