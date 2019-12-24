@@ -179,8 +179,8 @@ editor = (data) =>
     $("#das").click ->
       $('#editor').css('display','none')
       $('#das').css('display','block')
-  
-      episodas.episodas(data);
+
+      dasmaker.dasmaker(data,name,seed,answer);
         
         # save()
         # # localStorage経由でepisodasmakerにデータを渡す
