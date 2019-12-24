@@ -37,6 +37,29 @@ episodas = function(data){
     
     function finish(){
 	$('body').children().remove();
+
+	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタンを表示
+	    // https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
+	    // これでダウンロードリンクができる
+	    var a = $('<a>');
+	    // a.attr('download',`${name}.html`);
+	    a.attr('download',`das.html`);
+	    a.text('エクスポート');
+	    a.css('margin',10);
+	    
+	    lines = dastemplate.dastemplate.split(/\n/);
+	    for(let i=0;i<lines.length;i++){
+		if(lines[i].match(/REPLACE_THIS_LINE$/)){
+		    lines[i] = `const data = ${JSON.stringify(data)}`;
+		}
+	    }
+	    
+	    var blob = new Blob([ lines.join("\n") ], { type: "text/html" });
+	    var url = window.webkitURL.createObjectURL(blob);
+	    a.attr('href',url)
+	}
+	
+	$('body').append(a);
 	
 	// パスワードを表示!!
 	var newpass = crypt.crypt(data.seed,secretstr());
@@ -213,9 +236,10 @@ episodas = function(data){
 	center.append(qdiv);
 	
 	center.append($('<p>'));
-	
+
 	// 回答領域
 	answers = qas[0].answers; // 回答の数は同じということを仮定
+
 	for(var i=0;i<answers.length;i++){
             var div = $('<div>');
             buttondivs[i] = div;
@@ -250,7 +274,7 @@ episodas = function(data){
 	
 	initsize();
 	display();
-    };
+    }
 
     init();
 };

@@ -182,20 +182,14 @@ editor = (data) =>
 
       dasmaker.dasmaker(data,name,seed,answer);
         
-        # save()
-        # # localStorage経由でepisodasmakerにデータを渡す
-        # localStorage.setItem 'name', name
-        # localStorage.setItem 'seed', $('#seed').val()
-        # localStorage.setItem 'selections', JSON.stringify(answer)
-        # location.href = '/episodasmaker.html'
-      
     $('#seed').val data.seed
       
     $('#qa_json').click (event) ->
       event.preventDefault()
       d = JSON.stringify data
       blob = new Blob [d], {type: "text/plain;charset=utf-8"}
-      saveAs blob, "qa.json"
+
+      filesaver.saveAs blob, "qa.json"
       
     # Drag&Drop対応
     $('body')

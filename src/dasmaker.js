@@ -9,8 +9,6 @@
 // var exports = {};
 
 dasmaker = function(data,name,seed,selections){
-    alert(data['qas']);
-    
     var width, height;
     var qas, answers;
     var mousediv = null;
@@ -72,22 +70,13 @@ dasmaker = function(data,name,seed,selections){
 	    }
 	}
 	
-	alert('DASデータを生成しました。');
+	// alert('DASデータを生成しました。');
 	
 	// Data URI scheme
 	str = JSON.stringify(data) ;
 
 	/*
-	var datatext = "data:application/json;base64," +
-		btoa(unescape(encodeURIComponent(str)));
-	var a = $('<a>');
-	a.attr('href',datatext);
-	a.text('JSON data');
-	a.css('margin',10);
-	$('body').append(a);
-	 */
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
-
 	// これでダウンロードリンクができる
 	var a = $('<a>');
 	// a.attr('download',`${name}.html`);
@@ -107,8 +96,9 @@ dasmaker = function(data,name,seed,selections){
 	a.attr('href',url)
 	
 	$('body').append(a);
+	 */
 
-	alert("移動します");
+	alert('DASデータを生成しました。確認画面に移動します。');
 
 	episodas.episodas(data);
     }
@@ -262,8 +252,3 @@ dasmaker = function(data,name,seed,selections){
 }
 
 exports.dasmaker = dasmaker;
-    
-//    $(function() {
-//	init().then(() => { console.log('ok'); });
-//    });
-    
