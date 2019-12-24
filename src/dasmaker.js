@@ -6,6 +6,8 @@
 // DASボタンを押したときこれらの値がセーブされる
 //
 
+// var exports = {};
+
 dasmaker = function(data,name,seed,selections){
     var width, height;
     var qas, answers;

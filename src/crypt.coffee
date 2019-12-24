@@ -5,8 +5,8 @@
 # Last Modified: 2015/10/31 12:20:30
 #
 
-# md5 = if typeof require == 'undefined' then exports else require('./md5.js')
-md5 = require "./md5.js"
+md5 = if typeof require == 'undefined' then exports else require('./md5.js')
+# md5 = require "./md5.js"
 
 #  文字種ごとに置換を行なうためのテーブル
 charset = [

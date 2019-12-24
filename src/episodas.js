@@ -1,4 +1,8 @@
 episodas = function(data){
+    if(typeof(require) == 'undefined'){
+	crypt = exports;
+    }
+
     let browserWidth = () => {
 	if(window.innerWidth){ return window.innerWidth; }  
 	else if(document.body){ return document.body.clientWidth; }  
