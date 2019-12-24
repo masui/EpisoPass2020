@@ -10,10 +10,6 @@
 #
 
 editor = (data) =>
-  $ = require "./jquery.js"
-  crypt = require "./crypt.js"
-  episodas = require "./episodas.js"
-  
   name = data.name
   qas = data.qas
   curq = 0
@@ -180,8 +176,6 @@ editor = (data) =>
       calcpass()
     $('#pass').keyup (e) ->
       calcseed()
-    #$("#save").click ->
-    #  save()
     $("#das").click ->
       $('#editor').css('display','none')
       $('#das').css('display','block')

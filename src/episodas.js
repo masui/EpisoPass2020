@@ -1,7 +1,4 @@
 episodas = function(data){
-    let $ = require("./jquery.js");
-    let crypt = require("./crypt.js");
-
     let browserWidth = () => {
 	if(window.innerWidth){ return window.innerWidth; }  
 	else if(document.body){ return document.body.clientWidth; }  
