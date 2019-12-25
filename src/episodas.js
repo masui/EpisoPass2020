@@ -274,6 +274,15 @@ episodas = function(data){
     }
 
     init();
+
+    // ファイル名を サービス名_アカウント と解釈
+    // e.g. Amazon_masui@pitecan.com
+    m = location.href.match(/\/(\w+_[\w\.@]+)\.html$/)
+    if(m){
+	data['name'] = m[1]
+	$('body').attr('episodata',JSON.stringify(data));
+	console.log($('body').attr('episodata'))
+    }
 };
 
 exports.episodas = episodas;
