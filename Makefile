@@ -1,4 +1,4 @@
-all: compile template pack embed scp
+all: compile template index pack embed scp
 
 install:
 	npm install
@@ -10,6 +10,9 @@ embed:
 compile:
 	coffee -c src/editor.coffee
 	coffee -c src/crypt.coffee
+
+index:
+	erb src/index.erb > src/index.html
 
 template:
 	ruby bin/dastemplate.rb > src/dastemplate.js
