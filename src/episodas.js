@@ -221,7 +221,6 @@ episodas = function(data){
 	
 	var center = $('<center>');
 	$('body').append(center);
-	
 	$('body').on('mousemove',mousemove);
 	$('body').on('touchmove',mousemove);
 	

@@ -176,12 +176,20 @@ editor = (data) =>
       calcpass()
     $('#pass').keyup (e) ->
       calcseed()
-    $("#das").click ->
+    $("#dasbutton").click ->
       $('#editor').css('display','none')
-      $('#das').css('display','block')
+      $('#dasmaker').css('display','block')
+      $('#das').css('display','none')
+      $('#easy').css('display','none')
 
       dasmaker.dasmaker(data,name,seed,answer);
         
+    $("#easybutton").click ->
+      $('#editor').css('display','none')
+      $('#dasmaker').css('display','none')
+      $('#das').css('display','none')
+      $('#easy').css('display','block')
+      
     $('#seed').val data.seed
       
     $('#qa_json').click (event) ->
@@ -206,8 +214,8 @@ editor = (data) =>
     #
     # backボタンで戻ったときなど再表示する
     #
-    $(window).on 'pageshow', ->
-      maindiv()
+    #$(window).on 'pageshow', ->
+    #  maindiv()
       
     maindiv()
     calcpass()

@@ -4,6 +4,13 @@
   chrome.storageなら大丈夫か?
 
   easy.htmlを修正する必要がある
+    easy.htmlで編集したデータをepisopass.htmlが使えばいい
+    編集するたびにlocalStorageに格納すればよい
+
+  localStorageはドメインごとに管理されているので、easy.htmlで生成したデータをepisopass.htmlで読めないかも
+    easy.htmlもepisopass.htmlに含めてしまえばいいのか? うーん
+
+  EpisoPass.htmlが常にローカルDBをチェックすることにすればいいのだろうか
 
 * EpisoDASのHTMLファイルをどうやって生成する?
   jQueryとかmd5とかを含む必要あり
@@ -15,8 +22,12 @@
 </html>
 `
 
-  webpackはJSから呼べるの?
+  変な記号などが入ってるとダメなのでBase64エンコードしたものを使うことにする
+
+* webpackはJSから呼べるの?
   EpisoPass.htmlにwebpackを含めるのはイヤかも
+
+  これはやめた
 
 
 https://masui.github.io/EpisoQ/?qa=https://scrapbox.io/api/code/masui/%E7%9C%8C%E5%90%8D%E3%81%AA%E3%81%9E%E3%81%AA%E3%81%9E/episopass.js

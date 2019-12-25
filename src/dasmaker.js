@@ -73,7 +73,7 @@ dasmaker = function(data,name,seed,selections){
 	// alert('DASデータを生成しました。');
 	
 	// Data URI scheme
-	str = JSON.stringify(data) ;
+	//str = JSON.stringify(data) ;
 
 	/*
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
@@ -143,10 +143,11 @@ dasmaker = function(data,name,seed,selections){
 	$('body').css('margin',0);
 	$('body').css('padding',0);
 	$('body').css('border',0);
-	$('body').children().remove();
+	// $('body').children().remove();
+	$('#dasmaker').children().remove();
 	
 	var center = $('<center>');
-	$('body').append(center);
+	$('#dasmaker').append(center);
 	
 	// 
 	var qdiv = $('<div>');
