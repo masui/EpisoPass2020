@@ -14,29 +14,29 @@ data = require("./sampledata.json")
 
 require("./episopass.css")
 
-if(location.search[0] == '?'){
-    var pair = location.search.substring(1).split('&');
+lib = require("./lib.js")
+
+if(location.search[0] == '?'){ // 引数解釈
+    let pair = location.search.substring(1).split('&');
     for(var i=0; pair[i]; i++){
 	var kv = pair[i].split('=');
 	if(kv[0] == 'questions'){
 	    questions = decodeURIComponent(kv[1]).split(/;/)
-	    // $('#easyquestions').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
 	if(kv[0] == 'answers'){
 	    answers = decodeURIComponent(kv[1]).split(/;/)
-	    //$('#easyanswers').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
     }
-    qas = []
+    let qas = []
     for(let i=0;i<questions.length;i++){
-	let o = {}
-	o['question'] = questions[i]
-	o['answers'] = answers
-	qas.push(o)
+	let obj = {}
+	obj['question'] = questions[i]
+	obj['answers'] = answers
+	qas.push(obj)
     }
     data = {}
-    data['name'] = 'EpisoQ'
-    data['seed'] = 'EpisoQSeed'
+    data['name'] = 'EpisoPass'
+    data['seed'] = 'EpisoPassSeed01234'
     data['qas'] = qas
 }
 

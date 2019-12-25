@@ -39,8 +39,12 @@ episodas = function(data){
 	//$('body').children().remove();
 	$('#das').children().remove();
 
-	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタンを表示
-	    // https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
+	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタン処理
+
+	    lib.lib.make_html();
+
+	    /*
+	    // https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA
 	    // これでダウンロードリンクができる
 	    var a = $('#htmlbutton');
 	    a.attr('download','episopass.html');
@@ -56,6 +60,7 @@ episodas = function(data){
 	    var blob = new Blob([ html ], { type: "text/html" });
 	    var url = window.webkitURL.createObjectURL(blob);
 	    a.attr('href',url)
+	     */
 	}
 	
 	// パスワードを表示!!
@@ -240,7 +245,6 @@ episodas = function(data){
 	
 	// 問題領域
 	var qdiv = $('<div>');
-	qdiv.text('............');
 	qdiv.attr('height',100);
 	qdiv.css('display','flex');
 	qdiv.css('justify-content','center');

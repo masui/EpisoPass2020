@@ -176,6 +176,8 @@ editor = (data) =>
     $('#das').css('display','none')
     $('#easy').css('display','none')
 
+    lib.lib.make_html();
+
     #
     # seedかパスワードを編集したら相手を変更
     #
