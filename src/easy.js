@@ -69,7 +69,8 @@ easy = function(){
 	    
 	    editor.editor(data);
 	});
-	
+
+	/*
 	var pair = location.search.substring(1).split('&');
 	for(var i=0; pair[i]; i++){
 	    var kv = pair[i].split('=');
@@ -80,6 +81,7 @@ easy = function(){
 		$('#easyanswers').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	    }
 	}
+	 */
     }
 
     init();
