@@ -55,7 +55,7 @@ dasmaker = function(data,name,seed,selections){
     function finish(){
 	// データをシャフル
 	for(var i = 0; i < selected.length; i++){
-	    var answers = data.qas[i].answers;
+	    var answers = data.qas[i].answers.slice(); // 配列複製
 	    var rightanswer = answers[selections[i]];
 	    shuffle(answers);
 	    var curanswer = answers[selected[i]];
@@ -68,6 +68,7 @@ dasmaker = function(data,name,seed,selections){
 		    }
 		}
 	    }
+	    data.qas[i].answers = answers;
 	}
 
 	alert('DASデータを生成しました。確認して下さい。');
