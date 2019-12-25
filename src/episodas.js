@@ -36,16 +36,17 @@ episodas = function(data){
     };
     
     function finish(){
-	$('body').children().remove();
+	//$('body').children().remove();
+	$('#das').children().remove();
 
 	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタンを表示
 	    // https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
 	    // これでダウンロードリンクができる
-	    var a = $('<a>');
+	    var a = $('#htmlbutton');
 	    // a.attr('download',`${name}.html`);
-	    a.attr('download',`das.html`);
-	    a.text('エクスポート');
-	    a.css('margin',10);
+	    a.attr('download','episopass.html');
+	    //a.text('エクスポート');
+	    //a.css('margin',10);
 	    
 	    lines = dastemplate.dastemplate.split(/\n/);
 	    for(let i=0;i<lines.length;i++){
@@ -53,18 +54,17 @@ episodas = function(data){
 		    lines[i] = `const data = ${JSON.stringify(data)}`;
 		}
 	    }
+	    html = lines.join("\n")
 	    
-	    var blob = new Blob([ lines.join("\n") ], { type: "text/html" });
+	    var blob = new Blob([ html ], { type: "text/html" });
 	    var url = window.webkitURL.createObjectURL(blob);
 	    a.attr('href',url)
 	}
 	
-	$('body').append(a);
-	
 	// パスワードを表示!!
 	var newpass = crypt.crypt(data.seed,secretstr());
 	var center = $('<center>');
-	$('body').append(center);
+	$('#das').append(center);
 	//var passspan = $('<span>');
 	//passspan.text(newpass);
 	
@@ -214,33 +214,45 @@ episodas = function(data){
 	
 	$(window).on('resize',initsize);
 	
-	$('body').css('margin',0);
-	$('body').css('padding',0);
-	$('body').css('border',0);
-	$('body').children().remove();
-	
+	//$('body').css('margin',0);
+	//$('body').css('padding',0);
+	//$('body').css('border',0);
+	// $('body').children().remove();
+
+	if(typeof(editor) == 'undefined'){
+	}
+
+	$('#das').children().remove()
+	$('#editor').css('display','none')
+	$('#dasmaker').css('display','none')
+	$('#das').css('display','block')
+	$('#easy').css('display','none')
+
 	var center = $('<center>');
-	$('body').append(center);
-	$('body').on('mousemove',mousemove);
-	$('body').on('touchmove',mousemove);
+	//$('body').append(center);
+	//$('body').on('mousemove',mousemove);
+	//$('body').on('touchmove',mousemove);
+	$('#das').append(center);
+	$('#das').on('mousemove',mousemove);
+	$('#das').on('touchmove',mousemove);
 	
 	// 問題領域
 	var qdiv = $('<div>');
-	//qdiv.text('...');
+	qdiv.text('............');
 	qdiv.attr('height',100);
 	qdiv.css('display','flex');
 	qdiv.css('justify-content','center');
 	qdiv.css('align-items','center');
 	qdiv.attr('id','question');
 	center.append(qdiv);
-	
+
 	center.append($('<p>'));
 
 	// 回答領域
 	answers = qas[0].answers; // 回答の数は同じということを仮定
 
 	for(var i=0;i<answers.length;i++){
-            var div = $('<div>');
+            var div = $('<div>xxx</div>');
             buttondivs[i] = div;
             div.css('float','left');
             div.attr('index',i);

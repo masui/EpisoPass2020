@@ -69,36 +69,8 @@ dasmaker = function(data,name,seed,selections){
 		}
 	    }
 	}
-	
-	// alert('DASデータを生成しました。');
-	
-	// Data URI scheme
-	//str = JSON.stringify(data) ;
 
-	/*
-	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
-	// これでダウンロードリンクができる
-	var a = $('<a>');
-	// a.attr('download',`${name}.html`);
-	a.attr('download',`das.html`);
-	a.text('エクスポート');
-	a.css('margin',10);
-
-	lines = dastemplate.dastemplate.split(/\n/);
-	for(let i=0;i<lines.length;i++){
-	    if(lines[i].match(/REPLACE_THIS_LINE/)){
-		lines[i] = `const data = ${JSON.stringify(data)}`;
-	    }
-	}
-
-	var blob = new Blob([ lines.join("\n") ], { type: "text/html" });
-	var url = window.webkitURL.createObjectURL(blob);
-	a.attr('href',url)
-	
-	$('body').append(a);
-	 */
-
-	alert('DASデータを生成しました。確認画面に移動します。');
+	// alert('DASデータを生成しました。確認画面に移動します。');
 
 	episodas.episodas(data);
     }
@@ -107,7 +79,7 @@ dasmaker = function(data,name,seed,selections){
 	width = browserWidth();
 	height = browserHeight();
 	for(var i=0;i<answers.length;i++){
-	    div = $(`#id${i}`);
+	    div = $(`#dmid${i}`);
 	    div.css('background-color','#ccc');
 	    div.css('width',width / 6.5);
 	    div.css('height',height / 9);
@@ -124,14 +96,14 @@ dasmaker = function(data,name,seed,selections){
 	    div.css('border-radius',width*0.01);
 	    div.css('box-shadow','5px 5px 4px #888');
 	}
-	$('#question').css('font-size',width * 0.06);
+	$('#dmquestion').css('font-size',width * 0.06);
     }
     
     function init(){
 	qas = data['qas'];
 	page = 0;
 	
-	window.alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
+	// window.alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
 	
 	mousediv = null;
 	mousedown = false;
@@ -140,9 +112,9 @@ dasmaker = function(data,name,seed,selections){
 	
 	$(window).on('resize',initsize);
 	
-	$('body').css('margin',0);
-	$('body').css('padding',0);
-	$('body').css('border',0);
+	//$('body').css('margin',0);
+	//$('body').css('padding',0);
+	//$('body').css('border',0);
 	// $('body').children().remove();
 	$('#dasmaker').children().remove();
 	
@@ -156,7 +128,7 @@ dasmaker = function(data,name,seed,selections){
 	qdiv.css('display','flex');
 	qdiv.css('justify-content','center');
 	qdiv.css('align-items','center');
-	qdiv.attr('id','question');
+	qdiv.attr('id','dmquestion');
 	center.append(qdiv);
 	center.append($('<p>'));
 	
@@ -166,7 +138,7 @@ dasmaker = function(data,name,seed,selections){
 	    var div = $('<div>');
 	    div.css('float','left');
 	    div.attr('index',i);
-	    div.attr('id',`id${i}`);
+	    div.attr('id',`dmid${i}`);
 	    center.append(div);
 	    div.on('mouseenter',function(e){
 		mousediv = $(e.target);
@@ -183,7 +155,7 @@ dasmaker = function(data,name,seed,selections){
 		    }
 		    else {
 			if(selected.length > 0){
-			    $(`#id${selected[selected.length-1]}`).css('background-color','#ccc');
+			    $(`#dmid${selected[selected.length-1]}`).css('background-color','#ccc');
 			}
 			page += 1;
 		    }
@@ -222,7 +194,7 @@ dasmaker = function(data,name,seed,selections){
 		    e.preventDefault();
 		    if(mousedown){
 			if(selected.length > 0){
-			    $(`#id${selected[selected.length-1]}`).css('background-color','#ccc');
+			    $(`#dmid${selected[selected.length-1]}`).css('background-color','#ccc');
 			}
 			page += 1;
 		    }
@@ -237,7 +209,7 @@ dasmaker = function(data,name,seed,selections){
 		    e.preventDefault();
 		    if(mousedown){
 			if(selected.length > 0){
-			    $(`#id${selected[selected.length-1]}`).css('background-color','#ccc');
+			    $(`#dmid${selected[selected.length-1]}`).css('background-color','#ccc');
 			}
 			page += 1;
 		    }

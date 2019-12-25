@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <link rel="icon" type="image/png" href="data:image/png;base64,<%= Base64.encode64(File.read('src/favicon.png')).gsub("\n",'') %>">
-    <title><%= data['name'] %></title>
+    <title>EpisoDAS</title>
     <style type="text/css">
     body {
         background-image: url("data:image/gif;base64,<%= Base64.encode64(File.read('src/exclusive_paper.gif')).gsub("\n",'') %>");
@@ -40,5 +40,7 @@
     </script>
   </head>
   <body>
+    <div id="das">
+    </div>
   </body>
 </html>

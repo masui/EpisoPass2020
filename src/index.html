@@ -8,30 +8,31 @@
   </head>
   
   <body>
-    <div>
-      <span>問題編集</span>
-      <span>DASパタン作成</span>
-      <span>JSONダウンロード</span>
-      <span>HTMLダウンロード</span>
+    <!--
+    <div class="title">
+      <div class="title2">
+	<span class="title">
+	  <a href="/">EpisoPass</a> - NAME
+	</span>
+      </div>
     </div>
+    -->
+
+    <div class='topmenu'>
+      <a href="https://scrapbox.io/EpisoPass/概要"><div class='topmenuitem'>概要</div></a>
+      <a id="editbutton" href=""><div class='topmenuitem'>編集</div></a>
+      <span id="episoqbutton"><div class='topmenuitem'>作成</div></span>
+      <span id="dasbutton"><div class='topmenuitem'>DAS</div></span>
+      <span id="jsonbutton"><div class='topmenuitem'>JSON</div></span>
+      <a id="htmlbutton"><div class='topmenuitem'>HTML</div></a>
+    </div>
+    <p></p>
     
     <div id="editor"> <!-- 編集画面 -->
-      <div class="title">
-	<div class="title2">
-          <span class="title">
-	    <a href="/">EpisoPass</a> - NAME
-	  </span>
-	  <!-- <input type="button" id="save" value="Save to server" style="float:right;height:35px;margin:0 3 0 3;"> -->
-	  <input type="button" id="qa_json" value="Download data" style="float:right;height:35px;margin:0 3 0 3;">
-	  <input type="button" id="dasbutton" value="DAS" style="float:right;height:35px;margin:0 3 0 3;">
-	  <input type="button" id="easybutton" value="Easy" style="float:right;height:35px;margin:0 3 0 3;">
-	</div>
-      </div>
-      <p></p>
       <div style="font-size:18;">
-	Seed: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;">
-	⇔
-	Password: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;">
+	<b>Seed</b>: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+	<b>⇔</b>
+	<b>Password</b>: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
       </div>
       <p></p>
       

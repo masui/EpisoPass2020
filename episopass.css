@@ -14,6 +14,28 @@ a {
   text-decoration: none;
 }
 
+div.topmenu {
+      margin: 20;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+}
+div.topmenuitem {
+    margin: 4px 4px 4px 4px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 4px;
+    line-height: 1;
+    color: #fff;
+    background: #555;
+}
+
+span.topmenu {
+    background-color: yellow;
+    padding: 5pt;
+    margin: 2pt;
+}
+
 /*
 */
 div.title {

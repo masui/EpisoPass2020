@@ -171,11 +171,15 @@ editor = (data) =>
     false
   
   init = ()  ->
+    #
+    # seedかパスワードを編集したら相手を変更
+    #
     $('#seed').keyup (e) ->
       data['seed'] = $('#seed').val()
       calcpass()
     $('#pass').keyup (e) ->
       calcseed()
+
     $("#dasbutton").click ->
       $('#editor').css('display','none')
       $('#dasmaker').css('display','block')
@@ -192,7 +196,7 @@ editor = (data) =>
       
     $('#seed').val data.seed
       
-    $('#qa_json').click (event) ->
+    $('#qabutton').click (event) ->
       event.preventDefault()
       d = JSON.stringify data
       blob = new Blob [d], {type: "text/plain;charset=utf-8"}
