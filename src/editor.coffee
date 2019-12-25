@@ -165,6 +165,8 @@ editor = (data) =>
       $("#main").children().remove()
       data = JSON.parse json
       qas = data['qas']
+      seed = data['seed']
+      $('#seed').val seed
       maindiv()
       calcpass()
     fileReader.readAsText file
