@@ -20,10 +20,9 @@
 
     <div class='topmenu'>
       <a href="https://scrapbox.io/EpisoPass/概要"><div class='topmenuitem'>概要</div></a>
-      <span id="editbutton"><div class='topmenuitem'>編集</div></span>
-      <span id="easybutton"><div class='topmenuitem'>作成</div></span>
-      <span id="dasbutton"><div class='topmenuitem'>DAS</div></span>
-      <!-- <span id="jsonbutton"><div class='topmenuitem'>JSON</div></span> -->
+      <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
+      <span id="easybutton"><div class='topmenuitem'>簡単作成</div></span>
+      <span id="dasbutton"><div class='topmenuitem'>DAS登録</div></span>
       <a id="jsonbutton"><div class='topmenuitem'>JSON</div></a>
       <a id="htmlbutton"><div class='topmenuitem'>HTML</div></a>
     </div>
@@ -50,11 +49,14 @@
     </div>
 
     <div id="easy" style="display:none;"> <!-- 簡単登録画面 -->
-      <h1><a href="index.html">EpisoPass</a> お手軽問題作成</h1>
+      <h2>お手軽問題作成支援</h2>
 
-      <b>人名や地名のリストから簡単にEpisoPass問題を作ることができます。</b>
+      人名や地名のリストから簡単にEpisoPass問題を作ることができます。
+      名前と質問のリストを入力して <input type='button' id="startedit" value="問題編集"> ボタンを押して下さい。
 
-      <h2>1. 名前リストを作成</h2>
+      <ul>
+
+      <li>名前リスト</li>
       
       <ul>
 	<li>他人が知らない思い出がある人名や地名を30行ぐらい並べて下さい。</li>
@@ -67,36 +69,25 @@
 鈴木
 田中"
 		  ></textarea>
-	<!--
-	<br clear='all' />
-	<input type="button" id="addnames" value="サンプル人名リストを生成" style="font-size:1.5em;"/>
--->
       </blockquote>
       
-      <h2>2. 質問リストを作成</h2>
+      <li>質問リスト</li>
       
       <ul>
 	<li>上のリストのうち10個程度に対し、それを特定できる質問を並べて下さい。</li>
 	<li>他人が知らない秘密の<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
-	<li><a href="https://scrapbox.io/EpisoPass/%E8%B3%AA%E5%95%8F%E3%81%AE%E4%BE%8B">質問の例</a></li>
       </ul>
       
       <blockquote>
 	<textarea class="textinput" id="easyquestions" style="width:80%;height:80px;"
  		  placeholder="絵が上手いのは?
-足が遅いのは?
+バックハンドキャッチしたのは?
+ソニーにいたのは?
 スケート場は?"
 		></textarea>
-	<br clear='all' />
       </blockquote>
-    
-      <h2>3. EpisoPass編集</h2>
-      
-      <ul>
-	<li><span id="startedit" class="button">編集</span> ボタンを押すと編集ページに移動します。</li>
-      </ul>
-    </div>
 
+      </ul>
     <script src="./dist/bundle.js"></script>
   </body>
 </html>
