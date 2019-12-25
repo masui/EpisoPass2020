@@ -201,6 +201,11 @@ episodas = function(data){
     }
     
     var init = function(){
+	$('#editor').css('display','none')
+        $('#dasmaker').css('display','block')
+        $('#das').css('display','none')
+        $('#easy').css('display','none')
+	
 	qas = data['qas'];
 	page = 0;
 	

@@ -171,6 +171,11 @@ editor = (data) =>
     false
   
   init = ()  ->
+    $('#editor').css('display','block')
+    $('#dasmaker').css('display','none')
+    $('#das').css('display','none')
+    $('#easy').css('display','none')
+
     #
     # seedかパスワードを編集したら相手を変更
     #
@@ -181,25 +186,13 @@ editor = (data) =>
       calcseed()
 
     $("#editbutton").click ->
-      $('#editor').css('display','block')
-      $('#dasmaker').css('display','none')
-      $('#das').css('display','none')
-      $('#easy').css('display','none')
       editor(data);
         
     $("#dasbutton").click ->
-      $('#editor').css('display','none')
-      $('#dasmaker').css('display','block')
-      $('#das').css('display','none')
-      $('#easy').css('display','none')
-
       dasmaker.dasmaker(data,name,seed,answer);
         
     $("#easybutton").click ->
-      $('#editor').css('display','none')
-      $('#dasmaker').css('display','none')
-      $('#das').css('display','none')
-      $('#easy').css('display','block')
+      easy.easy();
       
     $('#seed').val data.seed
       
