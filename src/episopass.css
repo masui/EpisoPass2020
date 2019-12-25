@@ -1,5 +1,9 @@
+body {
+    background-color: #ffffdd;;
+}
+
 div {
-  font-family: sans-serif
+    font-family: sans-serif;
 }
 span {
   font-family: sans-serif

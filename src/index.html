@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="stylesheet" href="episopass.css" type="text/css"> <!-- これもwebpackする? -->
+    <!-- <xxxxx rel="stylesheet" href="episopass.css" type="text/css"> これもwebpackする -->
     <title>EpisoPass</title>
   </head>
   
@@ -21,14 +21,17 @@
     <div class='topmenu'>
       <a href="https://scrapbox.io/EpisoPass/概要"><div class='topmenuitem'>概要</div></a>
       <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
-      <span id="easybutton"><div class='topmenuitem'>簡単作成</div></span>
+      <span id="easybutton"><div class='topmenuitem'>作成支援</div></span>
       <span id="dasbutton"><div class='topmenuitem'>DAS登録</div></span>
       <a id="jsonbutton"><div class='topmenuitem'>JSON</div></a>
       <a id="htmlbutton"><div class='topmenuitem'>HTML</div></a>
     </div>
+    <hr>
     <p></p>
     
     <div id="editor"> <!-- 編集画面 -->
+      <h2>EpisoPass問題編集</h2>
+      
       <div style="font-size:18;">
 	<b>Seed</b>: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
 	<b>⇔</b>

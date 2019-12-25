@@ -70,7 +70,7 @@ dasmaker = function(data,name,seed,selections){
 	    }
 	}
 
-	// alert('DASデータを生成しました。確認画面に移動します。');
+	alert('DASデータを生成しました。確認して下さい。');
 
 	episodas.episodas(data);
     }
