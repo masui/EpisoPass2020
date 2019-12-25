@@ -43,10 +43,7 @@ episodas = function(data){
 	    // https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiiz
 	    // これでダウンロードリンクができる
 	    var a = $('#htmlbutton');
-	    // a.attr('download',`${name}.html`);
 	    a.attr('download','episopass.html');
-	    //a.text('エクスポート');
-	    //a.css('margin',10);
 	    
 	    lines = dastemplate.dastemplate.split(/\n/);
 	    for(let i=0;i<lines.length;i++){

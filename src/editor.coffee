@@ -203,12 +203,18 @@ editor = (data) =>
       
     $('#seed').val data.seed
       
-    $('#jsonbutton').click (event) ->
-      event.preventDefault()
-      d = JSON.stringify data
-      blob = new Blob [d], {type: "text/json;charset=utf-8"}
+    #$('#jsonbutton').click (event) ->
+    #  event.preventDefault()
+    #  d = JSON.stringify data
+    #  blob = new Blob [d], {type: "text/json;charset=utf-8"}
+    #
+    #  filesaver.saveAs blob, "qa.json"
 
-      filesaver.saveAs blob, "qa.json"
+    jsonbutton = $('#jsonbutton');
+    jsonbutton.attr('download','qa.json');
+    blob = new Blob [JSON.stringify(data)], {type: "text/json;charset=utf-8"}
+    url = window.webkitURL.createObjectURL(blob);
+    jsonbutton.attr('href',url)
       
     # Drag&Drop対応
     $('body')
