@@ -12,8 +12,4 @@ filesaver = require("./FileSaver.js")
 
 sampledata = require("./sampledata.json")
 
-//jsonstr = localStorage.getItem('episodata');
-//alert(jsonstr);
-//data = JSON.parse(jsonstr)
-
 editor.editor(sampledata)

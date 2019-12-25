@@ -180,6 +180,13 @@ editor = (data) =>
     $('#pass').keyup (e) ->
       calcseed()
 
+    $("#editbutton").click ->
+      $('#editor').css('display','block')
+      $('#dasmaker').css('display','none')
+      $('#das').css('display','none')
+      $('#easy').css('display','none')
+      editor(data);
+        
     $("#dasbutton").click ->
       $('#editor').css('display','none')
       $('#dasmaker').css('display','block')
@@ -196,10 +203,10 @@ editor = (data) =>
       
     $('#seed').val data.seed
       
-    $('#qabutton').click (event) ->
+    $('#jsonbutton').click (event) ->
       event.preventDefault()
       d = JSON.stringify data
-      blob = new Blob [d], {type: "text/plain;charset=utf-8"}
+      blob = new Blob [d], {type: "text/json;charset=utf-8"}
 
       filesaver.saveAs blob, "qa.json"
       
