@@ -73,6 +73,7 @@ dasmaker = function(data,name,seed,selections){
 
 	alert('DASデータを生成しました。確認して下さい。');
 
+	lib.lib.make_html(data);
 	episodas.episodas(data);
     }
     
