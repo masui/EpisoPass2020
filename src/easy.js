@@ -17,7 +17,7 @@ easy = function(){
             $('#easyanswers').css('height','80px');
             $('#easyquestions').css('height','80px');
 	});
-	$('easy#answers').on('click',() => {
+	$('#easyanswers').on('click',() => {
             $('#easyanswers').css('height','300px');
             $('#easyquestions').css('height','80px');
 	    return false;
