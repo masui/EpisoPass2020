@@ -9,6 +9,7 @@
 
   localStorageはドメインごとに管理されているので、easy.htmlで生成したデータをepisopass.htmlで読めないかも
     easy.htmlもepisopass.htmlに含めてしまえばいいのか? うーん
+    そうすることにした
 
   EpisoPass.htmlが常にローカルDBをチェックすることにすればいいのだろうか
 

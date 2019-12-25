@@ -1,3 +1,8 @@
+//
+// ライブラリのJS
+// lib = require("./lib.js")
+// lib.lib.make_html() が使える
+//
 lib = {
     make_html: function(data){
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA
