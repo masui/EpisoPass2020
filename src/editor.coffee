@@ -195,11 +195,6 @@ editor = (data) =>
 
     $("#descbutton").click ->
       lib.lib.show('#description')
-      #$('#description').css('display','block')
-      #$('#editor').css('display','none')
-      #$('#dasmaker').css('display','none')
-      #$('#das').css('display','none')
-      #$('#easy').css('display','none')
         
     $("#editbutton").click ->
       editor(data);

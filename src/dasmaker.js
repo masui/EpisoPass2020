@@ -102,11 +102,7 @@ dasmaker = function(data,name,seed,selections){
     }
     
     function init(){
-        $('#editor').css('description','none')
-        $('#editor').css('display','none')
-        $('#dasmaker').css('display','block')
-        $('#das').css('display','none')
-        $('#easy').css('display','none')
+	lib.lib.show('#dasmaker')
 	
 	qas = data['qas'];
 	page = 0;
