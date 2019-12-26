@@ -110,7 +110,7 @@ episodas = function(data){
 	for(var i=0;i<answers.length;i++){
             div = $(`#id${i}`);
             div.css('background-color','#ccc');
-            div.css('width',width / 6.5);
+            div.css('width',width / 7.0);
             div.css('height',height / 9);
             div.css('font-size',width * 0.03);
 	    

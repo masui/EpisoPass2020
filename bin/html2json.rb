@@ -5,7 +5,7 @@ ARGF.each { |line|
   line.chomp!
   if line =~ /^\s*const data = (.*)$/
     json = $1
-    json.sub!(/;$/,'')
+    json.sub!(/};.*$/,'}')
     puts json
   end
 }
