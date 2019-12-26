@@ -1,5 +1,13 @@
-EpisoPass2020  
-<b> EpisoPassとどう違うのか</b>  
+# 単一ファイルEpisoPass
+  
+## 考え方
+
+- http://EpisoPass.com EpisoPass.com]にデータをセーブするのは良くないので、完全にひとつのHTML(+JS)でEpisoPass機能を実現するようにした  
+  - 安心感とか使い勝手とかが若干向上したかも  
+  
+# 実装
+  
+<b> EpisoPassとどう違うのか</b>   
   
 <b> episopass.htmlはどこに置くのか</b>  
   - EpisoPass.comを存続させるとすると EpisoPass.com/EpisoPass.html か?  
@@ -46,4 +54,3 @@ EpisoPass2020
   - JSONはHTMLから抽出できる  
   
 <b> PWA</b>  
-
