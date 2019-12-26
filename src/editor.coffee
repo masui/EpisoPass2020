@@ -181,11 +181,7 @@ editor = (data) =>
     false
   
   init = ()  ->
-    $('#editor').css('display','block')
-    $('#dasmaker').css('display','none')
-    $('#das').css('display','none')
-    $('#easy').css('display','none')
-
+    lib.lib.show('#editor')
     lib.lib.make_html(data);
 
     #
@@ -197,6 +193,14 @@ editor = (data) =>
     $('#pass').keyup (e) ->
       calcseed()
 
+    $("#descbutton").click ->
+      lib.lib.show('#description')
+      #$('#description').css('display','block')
+      #$('#editor').css('display','none')
+      #$('#dasmaker').css('display','none')
+      #$('#das').css('display','none')
+      #$('#easy').css('display','none')
+        
     $("#editbutton").click ->
       editor(data);
         

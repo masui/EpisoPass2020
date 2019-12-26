@@ -21,6 +21,16 @@ lib = {
 	var blob = new Blob([ html ], { type: "text/html" });
 	var url = window.webkitURL.createObjectURL(blob);
 	a.attr('href',url)
+    },
+    
+    show: function(id){
+	$('#description').css('display','none')
+	$('#editor').css('display','none')
+	$('#dasmaker').css('display','none')
+	$('#das').css('display','none')
+	$('#easy').css('display','none')
+	
+	$(id).css('display','block')
     }
 }
 

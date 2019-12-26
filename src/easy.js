@@ -8,10 +8,7 @@ easy = function(){
 	}
     }
     function init(){
-	$('#editor').css('display','none')
-	$('#dasmaker').css('display','none')
-	$('#das').css('display','none')
-	$('#easy').css('display','block')
+	lib.lib.show('#easy')
 
 	$('body').on('click',() => {
             $('#easyanswers').css('height','80px');

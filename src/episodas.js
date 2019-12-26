@@ -186,11 +186,6 @@ episodas = function(data){
     }
     
     var init = function(){
-	$('#editor').css('display','none')
-        $('#dasmaker').css('display','block')
-        $('#das').css('display','none')
-        $('#easy').css('display','none')
-	
 	qas = data['qas'];
 	page = 0;
 	
@@ -201,19 +196,11 @@ episodas = function(data){
 	
 	$(window).on('resize',initsize);
 	
-	//$('body').css('margin',0);
-	//$('body').css('padding',0);
-	//$('body').css('border',0);
-	// $('body').children().remove();
-
 	if(typeof(editor) == 'undefined'){
 	}
 
 	$('#das').children().remove()
-	$('#editor').css('display','none')
-	$('#dasmaker').css('display','none')
-	$('#das').css('display','block')
-	$('#easy').css('display','none')
+	lib.lib.show('#das')
 
 	var center = $('<center>');
 	//$('body').append(center);

@@ -102,6 +102,7 @@ dasmaker = function(data,name,seed,selections){
     }
     
     function init(){
+        $('#editor').css('description','none')
         $('#editor').css('display','none')
         $('#dasmaker').css('display','block')
         $('#das').css('display','none')
