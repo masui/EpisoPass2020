@@ -161,12 +161,20 @@ editor = (data) =>
     file = files[0]
     fileReader = new FileReader()
     fileReader.onload = (event) ->
-      json = event.target.result # 読んだファイルの内容
-      $("#main").children().remove()
-      data = JSON.parse json
+      s = event.target.result # 読んだファイルの内容
+      if(s[0] == "{")
+        data = JSON.parse s
+      else
+        lines = s.split /\n/
+        lines.forEach (line) ->
+          m = line.match /^\s*const data = (.*)$/
+          if m
+            json = m[1].replace(/;.*$/,'')
+            data = JSON.parse json
       qas = data['qas']
       seed = data['seed']
       $('#seed').val seed
+      $("#main").children().remove()
       maindiv()
       calcpass()
     fileReader.readAsText file
