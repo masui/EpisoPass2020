@@ -200,7 +200,9 @@ episodas = function(data){
 	}
 
 	$('#das').children().remove()
-	lib.lib.show('#das')
+	if(typeof(editor) != 'undefined'){
+	    lib.lib.show('#das')
+	}
 
 	var center = $('<center>');
 	//$('body').append(center);
