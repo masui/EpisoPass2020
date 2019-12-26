@@ -24,12 +24,7 @@ lib = {
     },
     
     show: function(id){
-	$('#description').css('display','none')
-	$('#editor').css('display','none')
-	$('#dasmaker').css('display','none')
-	$('#das').css('display','none')
-	$('#easy').css('display','none')
-	
+	$('#contents').children().css('display','none')
 	$(id).css('display','block')
     }
 }

@@ -12,7 +12,7 @@ easy = require("./easy.js")
 
 data = require("./sampledata.json")
 
-require("./episopass.css")
+// require("./episopass.css")
 
 lib = require("./lib.js")
 

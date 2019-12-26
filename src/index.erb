@@ -4,20 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <% require 'base64' %>
     <link rel="icon" type="image/png" href="data:image/png;base64,<%= Base64.encode64(File.read('src/favicon.png')).gsub("\n",'') %>">
+    <style type="text/css">
+      <%= File.read('src/episopass.css') %>
+    </style>
     <title>EpisoPass</title>
   </head>
   
   <body>
-    <!--
-    <div class="title">
-      <div class="title2">
-	<span class="title">
-	  <a href="/">EpisoPass</a> - NAME
-	</span>
-      </div>
-    </div>
-    -->
-
     <div class='topmenu'>
       <!-- <a href="https://scrapbox.io/EpisoPass/概要"><div class='topmenuitem'>概要</div></a> -->
       <span id="descbutton"><div class='topmenuitem'>概要</div></span>
@@ -30,74 +23,75 @@
     <hr>
     <p></p>
 
-    <div id="description" style="display:none;">
-      <h2>概要</h2>
-
-      簡単な説明を書く
-    </div>
-    
-    <div id="editor"> <!-- 編集画面 -->
-      <h2>EpisoPassデータ編集</h2>
-      
-      <div style="font-size:18;">
-	<b>Seed</b>: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
-	<b>⇔</b>
-	<b>Password</b>: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+    <div id="contents">
+      <div id="description" style="display:none;">
+	<h2>概要</h2>
+	
+	簡単な説明を書く
       </div>
-      <p></p>
       
-      <div id="main">
+      <div id="editor"> <!-- 編集画面 -->
+	<h2>EpisoPassデータ編集</h2>
+	
+	<div style="font-size:18;">
+	  <b>Seed</b>: <input type="text" id="seed" value='SEED' width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+	  <b>⇔</b>
+	  <b>Password</b>: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+	</div>
+	<p></p>
+	
+	<div id="main">
+	</div>
       </div>
-    </div>
-
-    <div id="dasmaker" style="display:none;"> <!-- DAS作成画面 -->
-      <span>作成画面</span>
-    </div>
-
-    <div id="das" style="display:none;"> <!-- 利用画面 -->
-      <span>利用画面</span>
-    </div>
-
-    <div id="easy" style="display:none;"> <!-- 簡単登録画面 -->
-      <h2>お手軽問題作成支援</h2>
-
-      人名や地名のリストから簡単にEpisoPass問題を作ることができます。
-      名前と質問のリストを入力して <input type='button' id="startedit" value="問題編集"> ボタンを押して下さい。
-
-      <ul>
-
-      <li>名前リスト</li>
       
-      <ul>
-	<li>他人が知らない思い出がある人名や地名を30行ぐらい並べて下さい。</li>
-	<li>適当な名前を混ぜてもかまいません。</li>
-      </ul>
+      <div id="dasmaker" style="display:none;"> <!-- DAS作成画面 -->
+	<span>作成画面</span>
+      </div>
       
-      <blockquote>
-	<textarea id="easyanswers" class="textinput" style="width:80%;height:80px;"
-		  placeholder="山田
+      <div id="das" style="display:none;"> <!-- 利用画面 -->
+	<span>利用画面</span>
+      </div>
+      
+      <div id="easy" style="display:none;"> <!-- 簡単登録画面 -->
+	<h2>お手軽問題作成支援</h2>
+	
+	人名や地名のリストから簡単にEpisoPass問題を作ることができます。
+	名前と質問のリストを入力して <input type='button' id="startedit" value="問題編集"> ボタンを押して下さい。
+	
+	<ul>
+	  
+	  <li>名前リスト</li>
+	  
+	  <ul>
+	    <li>他人が知らない思い出がある人名や地名を30行ぐらい並べて下さい。</li>
+	    <li>適当な名前を混ぜてもかまいません。</li>
+	  </ul>
+	  
+	  <blockquote>
+	    <textarea id="easyanswers" class="textinput" style="width:80%;height:80px;"
+		      placeholder="山田
 鈴木
 田中"
-		  ></textarea>
-      </blockquote>
-      
-      <li>質問リスト</li>
-      
-      <ul>
-	<li>上のリストのうち10個程度に対し、それを特定できる質問を並べて下さい。</li>
-	<li>他人が知らない秘密の<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
-      </ul>
-      
-      <blockquote>
-	<textarea class="textinput" id="easyquestions" style="width:80%;height:80px;"
- 		  placeholder="絵が上手いのは?
+		      ></textarea>
+	  </blockquote>
+	  
+	  <li>質問リスト</li>
+	  
+	  <ul>
+	    <li>上のリストのうち10個程度に対し、それを特定できる質問を並べて下さい。</li>
+	    <li>他人が知らない秘密の<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
+	  </ul>
+	  
+	  <blockquote>
+	    <textarea class="textinput" id="easyquestions" style="width:80%;height:80px;"
+ 		      placeholder="絵が上手いのは?
 バックハンドキャッチしたのは?
 ソニーにいたのは?
 スケート場は?"
-		></textarea>
-      </blockquote>
-
-      </ul>
+		      ></textarea>
+	  </blockquote>
+	</ul>
+      </div>
     <script src="./dist/bundle.js"></script>
   </body>
 </html>
