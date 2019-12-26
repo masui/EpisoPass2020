@@ -1,25 +1,49 @@
-<h1>単一ファイルEpisoPass</h1>
+EpisoPass2020  
+<b> EpisoPassとどう違うのか</b>  
+  
+<b> episopass.htmlはどこに置くのか</b>  
+  - EpisoPass.comを存続させるとすると EpisoPass.com/EpisoPass.html か?  
+  
+<b> HTMLファイル生成してダウンロード可能にする方法</b>  
+  - テンプレートエンジンを使おうかと思ったが、テンプレートを表現する方法がない  
+  - バッククオートでヒアドキュメントみたいなのは書けるが、いろんな記号を含むテキストだとうまくいかない  
+  - テンプレートをBase64エンコードしたものを使うことにした。苦しい。  
+  - 出力したいHTMLファイルのテンプレートを  
+    - episodas.erbをerbしてエンコードしてdastemplate.jsを作る  
+    - このデータdastemplateをlib.jsのmake_htmlで展開してJSONデータで置換  
+  
+<b> JSファイルをまとめる方法</b>  
+  - とりあえずwebpackを使う  
+  
+<b> SPA的な実装</b>  
+  - `<div>`を切り替えることにした  
+  - lib.jsのshow()で指定する  
+  
+<b> Drag&Drop</b>  
+  - そういうAPIがある  
+  - JSONだけでなくHTMLもDrag&Dropできるようにした  
+  - `sendfile` というキーワード  
+  
+<b> CSSのwebpack</b>  
+  - できるのだがタイミングがずれる  
+  - erbを使うことにした  
+  
+<b> 拡張機能</b>  
+  - サーバ上にデータが無いので、`chrome.storage`にセーブしたQ/Aデータを使うことにした  
+  - DASのHTMLにアクセスしたとき `chrome.storage`にセーブする  
+  - Amazonなどのサービスのログイン画面で、マッチするデータがあればDASを表示する  
+  
+<b> EpisoQから移動する方法</b>  
+  - episoqコマンドで作った問題リスト/回答リストをepisopass.htmlに渡すことにしたい  
+  
+<b> DASのHTMLの生成</b>  
+  - REPLACEのところにJSONが入るようにする  
+  - JSからerbを使えないから  
+  - テンプレートエンジンを使う方法はあるかも  
+  
+<b> セーブデータ</b>  
+  - JSONデータをHTMLデータを扱うのは面倒なのでHTMLだけセーブできるようにする  
+  - JSONはHTMLから抽出できる  
+  
+<b> PWA</b>  
 
-<h2>考え方</h2>
-
-<ul>
-  <li><a href="http://EpisoPass.com/">EpisoPass.com</a>にデータをセーブするのは良くないので、
-    完全にひとつのHTML(+JS)でEpisoPass機能を実現するようにした</li>
-  <li>安心感とか使い勝手とかが若干向上したかも</li>
-</ul>
-
-<h2>実装</h2>
-
-<ul>
-  <li>episopass.htmlはどこに置くのか</li>
-  <li>EpisoQから移動する方法</li>
-  <li>HTMLファイル生成してダウンロード可能にする方法</li>
-  <li>Drag&amp;Dropの話</li>
-  <li>ヒアドキュメント, Base64</li>
-  <li>webpackの使い方</li>
-  <li>HTMLのDrag&amp;Drop</li>
-  <li>PWAモード</li>
-  <li>SPAもどきの実装</li>
-  <li>CSSのwebpack</li>
-  <li>拡張機能を使う方法</li>
-</ul>

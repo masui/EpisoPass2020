@@ -14,7 +14,8 @@ compile:
 index:
 	erb src/index.erb > src/index.html
 
-template:
+# episodas.erb, sampledata.json から dastemplate.js をつくる
+template: src/episodas.erb src/sampledata.json
 	ruby bin/dastemplate.rb > src/dastemplate.js
 
 clean:
