@@ -9,7 +9,7 @@ md5 = if typeof require == 'undefined' then exports else require('./md5.js')
 # md5 = require "./md5.js"
 
 #  文字種ごとに置換を行なうためのテーブル
-charset = [
+origcharset = [
   'abcdefghijklmnopqrstuvwxyz'
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   '0123456789'
@@ -18,6 +18,12 @@ charset = [
   ' '
   "\"'/<>\\`"
 ]
+
+hexcharset = [
+  "0123456789abcdef"
+]
+
+charset = origcharset
 
 charkind = (c) ->
   ind = null
@@ -59,6 +65,11 @@ utf2bytestr = (text) ->
 # crypt(crypt(s,data),data) == s になる
 #
 crypt = (str,seeddata) ->
+  if str.match /[0-9a-f]{32}/ # MD5のときHex文字だけ使うことにする。問題出るかも...
+    charset = hexcharset
+  else
+    charset = origcharset
+  
   # seeddataのMD5の32バイト値の一部を取り出して数値化し、
   # その値にもとづいて文字置換を行なう
   hash = md5.MD5_hexhash(utf2bytestr(seeddata))

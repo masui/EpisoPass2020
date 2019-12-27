@@ -36,7 +36,6 @@ episodas = function(data){
     };
     
     function finish(){
-	//$('body').children().remove();
 	$('#das').children().remove();
 
 	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタン処理
@@ -47,8 +46,6 @@ episodas = function(data){
 	var newpass = crypt.crypt(data.seed,secretstr());
 	var center = $('<center>');
 	$('#das').append(center);
-	//var passspan = $('<span>');
-	//passspan.text(newpass);
 	
 	// これはできないのか
 	var passspan = $('<input>');
@@ -73,9 +70,10 @@ episodas = function(data){
 	show.css('padding',width*0.02);
 	show.click(function(event){
 	    passspan.show();
+	    show.hide();
 	});
 	center.append(show);
-	
+
 	var input = $('<input>');
 	input.attr('type','button');
 	input.attr('value','Again');

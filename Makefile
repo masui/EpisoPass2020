@@ -1,4 +1,4 @@
-all: compile template index pack embed scp
+all: compile template index pack embed scp cp
 
 install:
 	npm install
@@ -23,4 +23,7 @@ clean:
 
 scp:
 	scp dist/episopass.html pitecan.com:/www/www.pitecan.com/tmp
+
+cp:
+	cp dist/episopass.html ../EpisoPass/public
 
