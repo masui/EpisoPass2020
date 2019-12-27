@@ -65,7 +65,8 @@ utf2bytestr = (text) ->
 # crypt(crypt(s,data),data) == s になる
 #
 crypt = (str,seeddata) ->
-  if str.match /[0-9a-f]{32}/ # MD5のときHex文字だけ使うことにする。問題出るかも...
+  # MD5ぽいときHex文字だけ使うことにする。問題出るかも...
+  if str.match /[0-9a-f]{32}/ && str.match /[a-f]/
     charset = hexcharset
   else
     charset = origcharset
