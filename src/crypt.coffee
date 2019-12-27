@@ -2,7 +2,7 @@
 # crypt.coffee - EpisoPassでの文字置換
 #
 # Toshiyuki Masui @ Pitecan.com
-# Last Modified: 2015/10/31 12:20:30
+# Last Modified: 2019/12/27
 #
 
 md5 = if typeof require == 'undefined' then exports else require('./md5.js')
@@ -62,24 +62,26 @@ utf2bytestr = (text) ->
   result
 
 #
+# secret_stringとcharset[]にもとづいてseedを暗号的に変換する
 # crypt(crypt(s,data),data) == s になる
 #
-crypt = (str,seeddata) ->
-  # MD5ぽいときHex文字だけ使うことにする。問題出るかも...
-  if str.match(/[0-9a-f]{32}/) && str.match(/[a-f]/)
+crypt = (seed,secret_string) ->
+  # ハッシュ値ぽいときHex文字だけ使うことにする。ちょっと心配だが...
+  # Hex文字が32文字以上で、数字と英字が入ってればまぁハッシュ値と思って良いのではないか...
+  if seed.match(/[0-9a-f]{32}/) && seed.match(/[a-f]/) && seed.match(/[0-9]/)
     charset = hexcharset
   else
     charset = origcharset
   
-  # seeddataのMD5の32バイト値の一部を取り出して数値化し、
+  # secret_stringのMD5の32バイト値の一部を取り出して数値化し、
   # その値にもとづいて文字置換を行なう
-  hash = md5.MD5_hexhash(utf2bytestr(seeddata))
+  hash = md5.MD5_hexhash(utf2bytestr(secret_string))
   res = ''
-  [0...str.length].forEach (i) ->
+  [0...seed.length].forEach (i) ->
     j = i % 8
     s = hash.substring(j*4,j*4+4)
     n = parseInt(s,16)
-    res += crypt_char(str[i],n+i)
+    res += crypt_char(seed[i],n+i)
   res
 
 exports.crypt = crypt

@@ -36,6 +36,11 @@ episodas = function(data){
     };
     
     function finish(){
+	if(location.href.match(/\.box\.html$/)){
+	    // masui_secret.box.html のようなURLのときはScrapboxページに飛ぶ
+	    location.href = 'https://scrapbox.io/' + crypt.crypt(data.seed,secretstr());
+	    return
+	}
 	$('#das').children().remove();
 
 	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタン処理
