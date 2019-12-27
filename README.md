@@ -42,7 +42,7 @@
     - DASのHTMLにアクセスしたとき `chrome.storage`にセーブする  
     - Amazonなどのサービスのログイン画面で、マッチするデータがあればDASを表示する  
   
-  - <b> [http://github.com/masui/EpisoQ EpisoQ</b>から移動する方法]  
+  - <b> <a href="http://github.com/masui/EpisoQ">EpisoQ</a>から移動する方法</b>
     - episoqコマンドで作った問題リスト/回答リストをepisopass.htmlの引数として渡す  
   
   - <b> DASのHTMLの生成</b>  
