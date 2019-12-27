@@ -43,7 +43,7 @@
     - Amazonなどのサービスのログイン画面で、マッチするデータがあればDASを表示する  
   
   - <b> <a href="http://github.com/masui/EpisoQ">EpisoQ</a>から移動する方法</b>
-    - episoqコマンドで作った問題リスト/回答リストをepisopass.htmlの引数として渡す  
+    - episoqで作った問題リスト/回答リストをepisopass.htmlの引数として渡す  
   
   - <b> DASのHTMLの生成</b>  
     - `REPLACE`と書いてあるところにJSONを挿入する  
