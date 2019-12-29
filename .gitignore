@@ -2,3 +2,8 @@
 *~
 dist
 node_modules
+src/editor.js
+src/crypt.js
+src/dastemplate.js
+src/index.html
+package-lock.json

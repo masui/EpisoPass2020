@@ -19,7 +19,11 @@ template: src/episodas.erb src/sampledata.json
 	ruby bin/dastemplate.rb > src/dastemplate.js
 
 clean:
-	rm -r -f bundle.js
+	/bin/rm -r -f bundle.js
+	/bin/rm src/editor.js
+	/bin/rm src/crypt.js
+	/bin/rm -f *~
+	/bin/rm -f */*~
 
 scp:
 	scp dist/episopass.html pitecan.com:/www/www.pitecan.com/tmp
