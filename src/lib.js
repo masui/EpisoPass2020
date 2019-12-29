@@ -9,7 +9,7 @@ lib = {
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA
 	// これでダウンロードリンクができる
 	var a = $('#htmlbutton');
-	a.attr('download','episopass.html');
+	a.attr('download','EpisoPass.html');
 	
 	lines = dastemplate.dastemplate.split(/\n/);
 	for(let i=0;i<lines.length;i++){
