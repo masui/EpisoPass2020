@@ -9,14 +9,9 @@ crypt = require("./crypt.js")
 dasmaker = require("./dasmaker.js")
 dastemplate = require("./dastemplate.js")
 easy = require("./easy.js")
-
-data = require("./sampledata.json")
-
-// require("./episopass.css")
-
 lib = require("./lib.js")
 
-let curdiv = null
+data = require("./sampledata.json")
 
 if(location.search[0] == '?'){ // 引数解釈
     let pair = location.search.substring(1).split('&');
@@ -41,14 +36,5 @@ if(location.search[0] == '?'){ // 引数解釈
     data['seed'] = 'EpisoPassSeed01234'
     data['qas'] = qas
 }
-
-//$(window).on('load',function(){
-//    //alert('onload');
-//    //alert(curdiv)
-//    if(curdiv){
-//	alert('curdiv defined')
-//	show(curdiv)
-//    }
-//});
 
 editor.editor(data)

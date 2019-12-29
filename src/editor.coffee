@@ -2,12 +2,10 @@
 #  editor.coffee - EpisoPass問題編集画面
 # 
 #  Toshiyuki Masui @ Pitecan.com
-#  Last Modified: 2015/10/31 19:12:53
+#  Modified       2015/10/31 19:12:53
 #  Modified       2018/02/23 17:24:33 for heroku
 #  Modified       2019/12/23 サーバを使わないように修正
 # 
-#  var json = '<%= @data.to_json %>';
-#
 
 editor = (data) =>
   name = data.name
