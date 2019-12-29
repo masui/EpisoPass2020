@@ -26,4 +26,5 @@ scp:
 
 cp:
 	cp dist/episopass.html ../EpisoPass/public
+	cp dist/episopass.html ../EpisoPass/public/EpisoPass.html
 

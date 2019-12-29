@@ -16,6 +16,8 @@ data = require("./sampledata.json")
 
 lib = require("./lib.js")
 
+let curdiv = null
+
 if(location.search[0] == '?'){ // 引数解釈
     let pair = location.search.substring(1).split('&');
     for(var i=0; pair[i]; i++){
@@ -39,5 +41,14 @@ if(location.search[0] == '?'){ // 引数解釈
     data['seed'] = 'EpisoPassSeed01234'
     data['qas'] = qas
 }
+
+//$(window).on('load',function(){
+//    //alert('onload');
+//    //alert(curdiv)
+//    if(curdiv){
+//	alert('curdiv defined')
+//	show(curdiv)
+//    }
+//});
 
 editor.editor(data)
