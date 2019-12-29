@@ -3,10 +3,8 @@
 #
 ARGF.each { |line|
   line.chomp!
-  if line =~ /^\s*const data = (.*)$/
-    json = $1
-    json.sub!(/};.*$/,'}')
-    puts json
+  if line =~ /^\s*const data = (.*})(;.*)?$/
+    puts $1
   end
 }
 
