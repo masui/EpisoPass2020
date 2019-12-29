@@ -23,6 +23,7 @@ clean:
 
 scp:
 	scp dist/episopass.html pitecan.com:/www/www.pitecan.com/tmp
+	scp dist/episopass.html pitecan.com:/www/www.pitecan.com/tmp/EpisoPass.html
 
 cp:
 	cp dist/episopass.html ../EpisoPass/public
