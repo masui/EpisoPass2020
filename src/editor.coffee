@@ -206,7 +206,6 @@ editor = (data) =>
       dasmaker.dasmaker(data,name,seed,answer);
         
     $("#easybutton").click ->
-      # lib.lib.show('#easy')
       easy.easy();
       
     $('#seed').val data.seed
