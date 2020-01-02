@@ -13,6 +13,8 @@ lib = require("./lib.js")
 
 data = require("./sampledata.json")
 
+easy.easy()
+
 if(location.search[0] == '?'){ // 引数解釈
     let pair = location.search.substring(1).split('&');
     for(var i=0; pair[i]; i++){

@@ -42,7 +42,7 @@ dasmaker = function(data,name,seed,selections){
 	    finished = true;
 	}
     }
-    
+
     function shuffle(array){
 	for(var i = array.length - 1; i > 0; i--){
 	    var r = Math.floor(Math.random() * (i + 1));
@@ -103,7 +103,7 @@ dasmaker = function(data,name,seed,selections){
     
     function init(){
 	lib.lib.show('#dasmaker')
-	
+
 	qas = data['qas'];
 	page = 0;
 	

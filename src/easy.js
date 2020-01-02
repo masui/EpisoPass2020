@@ -65,6 +65,7 @@ easy = function(){
 	    data['seed'] = "SampleSeed12345"
 	    
 	    editor.editor(data);
+	    // lib.lib.show('#editor');
 	});
 
 	var pair = location.search.substring(1).split('&');
@@ -83,4 +84,3 @@ easy = function(){
 }
 
 exports.easy = easy;
-    
