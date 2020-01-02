@@ -1,5 +1,12 @@
+:root {
+    --col:#555555;
+}
+
 body {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
+    color: var(--col);
+    padding-top: 55px;
+    padding-right: 0;
 }
 
 div {
@@ -12,18 +19,17 @@ li {
   font-family: sans-serif
 }
 
-a:link { color: #0000f0 ; }
-a:visited { color: #0000f0 ; }
+a:link { color: #2222e0 ; }
+a:visited { color: #2222e0 ; }
 a {
   text-decoration: none;
 }
 
 div.topmenu {
-      margin: 20;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
 }
 div.topmenuitem {
     margin: 4px 4px 4px 4px;
@@ -31,7 +37,7 @@ div.topmenuitem {
     border-radius: 4px;
     line-height: 1;
     color: #fff;
-    background: #555;
+    background: var(--col);
 }
 
 span.topmenu {
@@ -78,6 +84,16 @@ span.section {
   font-weight:bold;
 }
 
+input.seedpass {
+    height:20pt;
+    font-size:12pt;
+    border-style:solid;
+    padding:3pt;
+    border-radius:3pt;
+    border-width:1px;
+    border-color:#888;
+}
+
 span.answer {
     border: none;
     borderWidth: 0;
@@ -88,8 +104,6 @@ span.answer {
 input.answer {
     border: dotted;
     border-width: 1px;
-    padding: 1;
-    margin: 0 0 2 2;
     vertical-aign: middle;
     background-color: #ffffff;
     width: 120;
@@ -98,8 +112,9 @@ input.answer {
 }
 
 div.qadiv {
-    background-color: #cee;
+    /* background-color: #cee; */
     padding: 2;
+    margin: 0 0 10px 0;
     width: 100%;
 }
 
@@ -118,7 +133,8 @@ div.ansdiv {
 
 input.qinput {
     width: 100%;
-    background-color: #ffd;
+    /* background-color: #ffd; */
+    background-color: #fff;
     font-size: 10pt;
     font-family: sans-serif;
     font-weight: bold;

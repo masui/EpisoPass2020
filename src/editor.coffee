@@ -19,7 +19,10 @@ editor = (data) =>
     ->
       answer[q] = a
       [0...qas[q]['answers'].length].forEach (i) ->
-        $("#answer#{q}-#{i}").css 'background-color', if i == a then '#ccf' else '#fff'
+        # $("#answer#{q}-#{i}").css 'background-color', if i == a then '#ccf' else '#fff' xxxx
+        #$("#answer#{q}-#{i}").css 'border-color', if i == a then '#00f' else '#444'
+        $("#answer#{q}-#{i}").css 'background-color', if i == a then '#444' else '#fff'
+        $("#answer#{q}-#{i}").css 'color', if i == a then '#fff' else '#444'
       calcpass true
   
   editfunc = (q,a) -> # q番目の質問のa番目の選択肢を編集したとき呼ばれる関数
@@ -43,10 +46,20 @@ editor = (data) =>
     input = $('<input type="text" autocomplete="off" class="answer">')
       .val qas[q]['answers'][a]
       .attr 'id', "answer#{q}-#{a}"
-      .css 'background-color', if a == 0 then '#ccf' else '#fff'
+      .css 'background-color', if a == 0 then '#444' else '#fff'
+      .css 'color', if a == 0 then '#fff' else '#444'
+      .css 'border-radius', '4pt'
       .on 'click', selfunc(q,a)
       .on 'keyup', editfunc(q,a)
+      .css 'padding', '4px'
+      .css 'border', 'none'
       # .hover hover_in_func(q,a), hover_out_func()
+    #ds = $('<span>')
+    #ds.css('margin','5pt');
+    #ds.append(input)
+    #input.css('border','none');
+    #aspan.append(ds)
+
     aspan.append(input)
   
   showimage = (str,img) ->
@@ -84,6 +97,8 @@ editor = (data) =>
     qinput = $('<input type="text" autocomplete="off" class="qinput">')
       .attr 'id', "question#{q}"
       .val qstr
+      .css 'padding', '4pt'
+      .css 'border-radius', '4pt'
       .on 'keyup', qeditfunc(q)
     qdiv.append qinput
     div.append qdiv

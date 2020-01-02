@@ -107,7 +107,7 @@ dasmaker = function(data,name,seed,selections){
 	qas = data['qas'];
 	page = 0;
 	
-	// window.alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
+	alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
 	
 	mousediv = null;
 	mousedown = false;
@@ -116,16 +116,11 @@ dasmaker = function(data,name,seed,selections){
 	
 	$(window).on('resize',initsize);
 	
-	//$('body').css('margin',0);
-	//$('body').css('padding',0);
-	//$('body').css('border',0);
-	// $('body').children().remove();
 	$('#dasmaker').children().remove();
 	
 	var center = $('<center>');
 	$('#dasmaker').append(center);
 	
-	// 
 	var qdiv = $('<div>');
 	qdiv.text('DASパタンを入力して下さい');
 	qdiv.height(100);

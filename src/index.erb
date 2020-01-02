@@ -11,23 +11,26 @@
   </head>
   
   <body>
-    <div class='topmenu'>
-      <span id="descbutton"><div class='topmenuitem'>EpisoPass概要</div></span>
-      <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
-      <span id="easybutton"><div class='topmenuitem'>問題作成支援</div></span>
-      <span id="dasbutton"><div class='topmenuitem'>利用ページ作成</div></span>
-      <!-- <a id="jsonbutton"><div class='topmenuitem'>JSON</div></a> -->
-      <a id="htmlbutton"><div class='topmenuitem'>利用ページダウンロード</div></a>
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 990; overflow: unset">
+      <div style="padding:10px;background-color:#ffffff;">
+	<div class='topmenu'>
+	  <span id="descbutton"><div class='topmenuitem'>EpisoPass概要</div></span>
+	  <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
+	  <span id="easybutton"><div class='topmenuitem'>問題作成支援</div></span>
+	  <span id="dasbutton"><div class='topmenuitem'>利用ページ作成</div></span>
+	  <a id="htmlbutton"><div class='topmenuitem'>利用ページダウンロード</div></a>
+	</div>
+	<hr>
+      </div>
+      <img src="https://gyazo.com/1029064340058f9937b59a93d7410f24.png" height=40 style="position: fixed; top: 10px; left: 10px; right: 0; z-index: 990; overflow: unset;">
     </div>
-    <hr>
-    <p></p>
 
-    <div id="contents">
+    <div id="contents" style="width:95%;margin:auto;max-width:900px;">
       <div id="description" style="display:none;">
 	<h2>概要</h2>
-
+	
 	詳細は<a href="https://Scrapbox.io/EpisoPass2020">EpisoPass情報ページ</a>に記述してあります。
-
+	
 	<ul>
 	  <li><b>EpisoPass</b>&#8482; は、個人的な記憶から複雑なパスワードを生成するシステムです。</li>
 	  <li>
@@ -46,7 +49,7 @@
 	    利用ページでの回答選択が楽になります。
 	  </li>
 	</ul>
-
+	
 	<h3>ネットの利用</h3>
 	<ul>
 	  <li>
@@ -63,7 +66,7 @@
 	    利用ページはどこでも動かすことができます。
 	  </li>
 	</ul>
-
+	
 	<h3>データの再編集</h3>
 	<ul>
 	  <li>
@@ -71,7 +74,7 @@
 	    問題データを再編集できます。
 	  </li>
 	</ul>
-
+	
 	<h3>問題を簡単に作成する</h3>
 	<ul>
 	  <li>「問題作成支援」ページで回答リストと質問リストを入力すると問題データを簡単に作成できます。</li>
@@ -90,7 +93,7 @@
 	    <code>% episoq プロジェクト名 ページ名</code>
 	  </li>
 	</ul>
-
+	
 	<h3>ブラウザ拡張機能</h3>
 	<ul>
 	  <li>
@@ -109,9 +112,9 @@
 	<h2>データ編集</h2>
 
 	<div style="font-size:18;">
-	  <b>Seed</b>: <input type="text" id="seed" width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+	  <b>Seed</b>: <input type="text" id="seed" class="seedpass" width=100>
 	  <b>⇔</b>
-	  <b>Password</b>: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;border-width:2pt;">
+	  <b>Password</b>: <input type="text" id="pass" class="seedpass" width=100>
 	</div>
 	<p></p>
 	
@@ -129,42 +132,42 @@
       
       <div id="easy" style="display:none;"> <!-- 簡単登録画面 -->
 	<h2>問題作成支援</h2>
-	
-	地名などのリストから簡単にEpisoPass問題を作ることができます。
-	名前と質問のリストを入力して <input type='button' id="startedit" value="問題編集"> ボタンを押して下さい。
-	
+
 	<ul>
+	  <li>地名などのリストから簡単にEpisoPass問題を作ることができます。</li>
+	  <li>名前と質問のリストを入力して <input type='button' style="border-radius:4px;" id="startedit" value="問題編集"> ボタンを押して下さい。</li>
+	</ul>
+
 	  
-	  <li>名前リスト</li>
+	<h3>名前リスト</h3>
 	  
-	  <ul>
-	    <li>他人が知らない思い出がある地名や人名などを30行ぐらい並べて下さい。</li>
-	    <li>適当な名前を混ぜてもかまいません。</li>
-	  </ul>
+	<ul>
+	  <li>他人が知らない思い出がある地名や人名などを30行ぐらい並べて下さい。</li>
+	  <li>適当な名前を混ぜてもかまいません。</li>
+	</ul>
 	  
-	  <blockquote>
-	    <textarea id="easyanswers" class="textinput" style="width:80%;height:80px;"
-		      placeholder="広島
+	<blockquote>
+	  <textarea id="easyanswers" class="textinput" style="width:80%;height:80px;"
+		    placeholder="広島
 千葉
 福島"
 		      ></textarea>
-	  </blockquote>
+	</blockquote>
 	  
-	  <li>質問リスト</li>
+	<h3>質問リスト</h3>
 	  
-	  <ul>
-	    <li>上のリストのうち10個程度に対し、それを特定できる質問を並べて下さい。</li>
-	    <li>他人が知らない<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
-	  </ul>
+	<ul>
+	  <li>上のリストのうち10個程度に対し、それを特定できる質問を並べて下さい。</li>
+	  <li>他人が知らない<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
+	</ul>
 	  
-	  <blockquote>
-	    <textarea class="textinput" id="easyquestions" style="width:80%;height:80px;"
- 		      placeholder="小指をケガしたのは?
+	<blockquote>
+	  <textarea class="textinput" id="easyquestions" style="width:80%;height:80px;"
+ 		    placeholder="小指をケガしたのは?
 財布を拾ったのは?
 ヘビがいたのは?"
-		      ></textarea>
-	  </blockquote>
-	</ul>
+		    ></textarea>
+	</blockquote>
       </div>
     </div>
     
