@@ -50,9 +50,9 @@ episodas = function(data){
 	center.append($('<p>'));
 	
 	// これはできないのか
-	var passspan = $('<div>');
-	//passspan.val(newpass);
-	passspan.text(newpass);
+	var passspan = $('<input>');
+	passspan.val(newpass);
+	//passspan.text(newpass);
 	passspan.attr('type','text');
 	passspan.css('font-size',width*0.06);
 	passspan.css('border-radius',width*0.015);
@@ -100,7 +100,8 @@ episodas = function(data){
             init();
 	});
 	center.append(again);
-	
+
+	console.log('select');
 	passspan.select();
 	document.execCommand("copy");
 	passspan.hide();

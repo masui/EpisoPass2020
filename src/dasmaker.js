@@ -7,7 +7,7 @@
 //
 
 dasmaker = function(data,name,seed,selections){
-    console.log('dasmaker')
+    //console.log('dasmaker')
     //console.log(data)
     
     var mousedown = false;
@@ -54,7 +54,7 @@ dasmaker = function(data,name,seed,selections){
 	if(finished) return;
 	finished = true;
 
-	console.log(selected)
+	//console.log(selected)
 
 	// データを複製
 	var newdata = {}
@@ -191,7 +191,7 @@ dasmaker = function(data,name,seed,selections){
 
 	qas = data['qas'];
 	
-	alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
+	//alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
 	
 	// mousediv = null;
 	mousedown = false;
