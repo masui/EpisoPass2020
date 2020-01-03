@@ -204,7 +204,7 @@ editor = (data) =>
     $("#dasbutton").off() # 何度も登録されて困った
     $("#dasbutton").click ->
       dasmaker.dasmaker(data,name,seed,answer);
-        
+
     $("#easybutton").click ->
       easy.easy();
       

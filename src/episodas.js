@@ -1,4 +1,7 @@
 episodas = function(data){
+    var mousedown = false;
+    var curdiv = null; // letじゃ駄目
+    
     if(typeof(require) == 'undefined'){
 	crypt = exports;
     }
@@ -15,29 +18,21 @@ episodas = function(data){
 	return 0;  
     };
     
-    var display = function(){ // n番目の問題と答リストを設定
-	if(page < qas.length){
-            var question = qas[page].question;
+    var showQA = function(){ // n番目の問題と答リストを設定
+	let len = selected.length;
+	if(len < qas.length){
+            let question = qas[len].question;
             $('#question').text(question);
-            answers = qas[page].answers;
+            let answers = qas[len].answers;
             for(var i=0;i<answers.length;i++){
-		$(`#id${i}`).text(answers[i]);
+		$('#id'+i).text(answers[i]);
             }
 	}
     };
     
-    var select_answer = function(s){
-	if(page < qas.length){
-            selected.push(s);
-	}
-	if(page+1 == qas.length){
-            finished = true;
-	}
-    };
-    
     function finish(){
+	// masui_secret.box.html のようなURLのときはScrapboxページに飛ぶ
 	if(location.href.match(/\.box\.html$/)){
-	    // masui_secret.box.html のようなURLのときはScrapboxページに飛ぶ
 	    location.href = 'https://scrapbox.io/' + crypt.crypt(data.seed,secretstr());
 	    return
 	}
@@ -52,14 +47,21 @@ episodas = function(data){
 	var center = $('<center>');
 	$('#das').append(center);
 	
+	center.append($('<p>'));
+	
 	// これはできないのか
-	var passspan = $('<input>');
-	passspan.val(newpass);
+	var passspan = $('<div>');
+	//passspan.val(newpass);
+	passspan.text(newpass);
 	passspan.attr('type','text');
 	passspan.css('font-size',width*0.06);
 	passspan.css('border-radius',width*0.015);
 	passspan.css('margin',width*0.01);
 	passspan.css('padding',width*0.02);
+	passspan.css('background-color','#fff');
+	passspan.css('border-style','solid');
+	passspan.css('border-width','1pt');
+	passspan.css('border-color','#000');
 	//passspan.attr('display','none');
 	//passspan.hide();
 	center.append(passspan);
@@ -68,28 +70,36 @@ episodas = function(data){
 	
 	var show = $('<input>');
 	show.attr('type','button');
-	show.attr('value','Show');
+	show.attr('value','表示');
 	show.css('font-size',width*0.05);
 	show.css('border-radius',width*0.015);
 	show.css('margin',width*0.01);
 	show.css('padding',width*0.02);
+	show.css('background-color','#fff');
+	show.css('border-style','solid');
+	show.css('border-width','1pt');
+	show.css('border-color','#000');
 	show.click(function(event){
 	    passspan.show();
 	    show.hide();
 	});
 	center.append(show);
 
-	var input = $('<input>');
-	input.attr('type','button');
-	input.attr('value','Again');
-	input.css('font-size',width*0.05);
-	input.css('border-radius',width*0.015);
-	input.css('margin',width*0.01);
-	input.css('padding',width*0.02);
-	input.click(function(event){
+	var again = $('<input>');
+	again.attr('type','button');
+	again.attr('value','もう一度');
+	again.css('font-size',width*0.05);
+	again.css('border-radius',width*0.015);
+	again.css('margin',width*0.01);
+	again.css('padding',width*0.02);
+	again.css('background-color','#fff');
+	again.css('border-style','solid');
+	again.css('border-width','1pt');
+	again.css('border-color','#000');
+	again.click(function(event){
             init();
 	});
-	center.append(input);
+	center.append(again);
 	
 	passspan.select();
 	document.execCommand("copy");
@@ -108,14 +118,20 @@ episodas = function(data){
     };
     
     function initsize(){
-	width = browserWidth();
+	if($('#contents')[0] == undefined){
+	    width = browserWidth();
+	}
+	else {
+	    width = $('#contents').width();
+	}
 	height = browserHeight();
 	for(var i=0;i<answers.length;i++){
-            div = $(`#id${i}`);
-            div.css('background-color','#ccc');
-            div.css('width',width / 7.0);
-            div.css('height',height / 9);
+            div = $('#id'+i);
+            div.css('background-color','#fff');
+            div.css('width',width / 6.8);
+            div.css('height',height / 10);
             div.css('font-size',width * 0.03);
+	    div.css('color','#000');
 	    
             // FlexBoxでセンタリング
             div.css('display','flex');
@@ -124,55 +140,51 @@ episodas = function(data){
 	    
             div.css('margin',width / 100);
             div.css('padding',width / 100);
-            div.css('border',0);
+	    div.css('border-style','solid');
             div.css('border-radius',width*0.01);
-            div.css('box-shadow','5px 5px 4px #888');
+            div.css('border-color','#000');
+	    div.css('border-width','1px');
+            // div.css('box-shadow','5px 5px 4px #888');
 	}
-	$('#question').css('font-size',width * 0.06);
+	$('#question').css('font-size',width * 0.05);
+	$('#question').css('margin-top','10px');
     }
-    
-    var mousedown = false;
-    var curdiv = null;
-    var buttondiv;
-    var buttondivs = [];
     
     function mouseenter(div){
 	curdiv = div;
 	if(mousedown){
             curdiv.css('background-color','#f3f3f3');
-            select_answer(curdiv.attr('index'));
+	    selected.push(curdiv.attr('id').replace(/id/,''))
 	}
     }
     
     function mouseleave(div){
-	curdiv = null;
 	if(mousedown){
-            if(finished){
+            curdiv.css('background-color','#fff');
+	    showQA();
+	    
+	    if(selected.length == qas.length){
 		finish();
             }
-            else {
-		if(selected.length > 0){
-                    $(`#id${selected[selected.length-1]}`).css('background-color','#ccc');
-		}
-		page += 1;
-		display();
-            }
 	}
+	curdiv = null;
     }
     
     function mousemove(e){
+	if($('#id0')[0] == undefined) return;
+	if(! mousedown) return;
+
 	var mousex = (e.pageX ? e.pageX : e.originalEvent.touches[0].pageX);
 	var mousey = (e.pageY ? e.pageY : e.originalEvent.touches[0].pageY);
 	for(var i=0;i<answers.length;i++){
-            //buttondiv = $(`#id${i}`);
-            buttondiv = buttondivs[i];
+            let buttondiv = $('#id'+i);
             buttonx = buttondiv.offset().left;
             buttony = buttondiv.offset().top;
             buttonw = buttondiv.width();
             buttonh = buttondiv.height();
             if(buttonx < mousex && buttonx+buttonw > mousex &&
                buttony < mousey && buttony+buttonh > mousey){
-		if(curdiv != buttondiv){
+		if(!curdiv || (curdiv.attr('id') != buttondiv.attr('id'))){
                     if(curdiv){
 			mouseleave(curdiv);
                     }
@@ -184,33 +196,24 @@ episodas = function(data){
 	}
 	if(curdiv){
             mouseleave(curdiv);
-            mousediv = null;
 	}
     }
     
     var init = function(){
 	qas = data['qas'];
-	page = 0;
 	
 	curdiv = null;
 	mousedown = false;
 	selected = [];
-	finished = false;
 	
 	$(window).on('resize',initsize);
 	
-	if(typeof(editor) == 'undefined'){
-	}
-
 	$('#das').children().remove()
 	if(typeof(editor) != 'undefined'){
 	    lib.lib.show('#das')
 	}
 
 	var center = $('<center>');
-	//$('body').append(center);
-	//$('body').on('mousemove',mousemove);
-	//$('body').on('touchmove',mousemove);
 	$('#das').append(center);
 	$('#das').on('mousemove',mousemove);
 	$('#das').on('touchmove',mousemove);
@@ -230,11 +233,9 @@ episodas = function(data){
 	answers = qas[0].answers; // 回答の数は同じということを仮定
 
 	for(var i=0;i<answers.length;i++){
-            var div = $('<div>xxx</div>');
-            buttondivs[i] = div;
+            var div = $('<div>');
             div.css('float','left');
-            div.attr('index',i);
-            div.attr('id',`id${i}`);
+            div.attr('id','id'+i);
             center.append(div);
 	    
             div.on('mousedown',function(e){
@@ -262,7 +263,7 @@ episodas = function(data){
 	}
 	
 	initsize();
-	display();
+	showQA();
     }
 
     init();
