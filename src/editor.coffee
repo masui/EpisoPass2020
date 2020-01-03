@@ -104,12 +104,12 @@ editor = (data) =>
       .attr 'id', "delim#{q}"
     ansdiv.append delim
       
-    minus = $('<input type="button" value=" - ">')
+    minus = $('<input type="button" value=" 回答削除 ">')
       .on 'click', minusfunc(q)
     ansdiv.append minus
     ansdiv.append $('<span>  </span>')
       
-    plus = $('<input type="button" value=" + ">')
+    plus = $('<input type="button" value=" 回答追加 ">')
       .on 'click', plusfunc(q)
     ansdiv.append plus
     div.append ansdiv
@@ -121,7 +121,7 @@ editor = (data) =>
     [0...qas.length].forEach (i) ->
       $("#main").append qadiv(i)
   
-    minus = $('<input type="button" value=" - " id="qa_minus" class="qabutton">')
+    minus = $('<input type="button" value=" 問題削除 " id="qa_minus" class="qabutton">')
       .click (event) -> # 質問の数を減らす「-」ボタンをクリックしたとき呼ばれる関数
         qas.pop()
         $("#qadiv#{qas.length}").remove()
@@ -130,7 +130,7 @@ editor = (data) =>
       
     $("#main").append $('<span>  </span>')
       
-    plus = $('<input type="button" value=" + " class="qabutton">')
+    plus = $('<input type="button" value=" 問題追加 " class="qabutton">')
       .click (event) -> # 質問の数を増やす「-」ボタンをクリックしたとき呼ばれる関数
         qas.push
           question: "新しい質問"

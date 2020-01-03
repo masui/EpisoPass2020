@@ -22,12 +22,13 @@
 	</div>
 	<hr>
       </div>
-      <img src="https://gyazo.com/1029064340058f9937b59a93d7410f24.png" height=40 style="position: fixed; top: 10px; left: 10px; right: 0; z-index: 990; overflow: unset;">
+      <img src="data:image/png;base64,<%= Base64.encode64(File.read('src/episopass.png')).gsub("\n",'') %>"
+	   height=40 style="position: fixed; top: 10px; left: 10px; right: 0; z-index: 990; overflow: unset;">
     </div>
 
-    <div id="contents" style="width:95%;margin:auto;max-width:900px;">
+    <div id="contents" style="width:95%;margin:auto;width:800px">
       <div id="description" style="display:none;">
-	<h2>概要</h2>
+	<h2>EpisoPass概要</h2>
 	
 	詳細は<a href="https://Scrapbox.io/EpisoPass2020">EpisoPass情報ページ</a>に記述してあります。
 	
@@ -109,9 +110,9 @@
       </div>
       
       <div id="editor"> <!-- 編集画面 -->
-	<h2>データ編集</h2>
+	<h2>問題編集<h2>
 
-	<div style="font-size:18;">
+	<div style="font-size:18; width=600px;">
 	  <b>Seed</b>: <input type="text" id="seed" class="seedpass" width=100>
 	  <b>⇔</b>
 	  <b>Password</b>: <input type="text" id="pass" class="seedpass" width=100>

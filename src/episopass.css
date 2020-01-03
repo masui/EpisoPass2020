@@ -33,8 +33,8 @@ div.topmenu {
 }
 div.topmenuitem {
     margin: 4px 4px 4px 4px;
-    padding: 10px 15px 10px 15px;
-    border-radius: 4px;
+    padding: 8px 15px 10px 15px;
+    border-radius: 4pt;
     line-height: 1;
     color: #fff;
     background: var(--col);
@@ -86,10 +86,11 @@ span.section {
 
 input.seedpass {
     height:20pt;
+    width: 197pt;
     font-size:12pt;
     border-style:solid;
     padding:3pt 3pt 3pt 7pt;
-    border-radius:3pt;
+    border-radius:4pt;
     border-width:1px;
     border-color:#888;
 }
@@ -99,6 +100,7 @@ span.answer {
     borderWidth: 0;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 input.answer {
@@ -111,12 +113,15 @@ input.answer {
     font-size: 9pt;
     font-family: sans-serif;
     padding: 4px;
+    text-align: center;
 }
 
 div.qadiv {
     /* background-color: #cee; */
     padding: 2;
-    margin: 0 0 10px 0;
+    /* margin: 0 0 10px 0; */
+    margin-right: auto;
+    margin-left: auto;
     width: 100%;
 }
 
@@ -131,10 +136,15 @@ div.qdiv {
 div.ansdiv {
     float: left;
     padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    width: 780px; /* 715 */
 }
 
 input.qinput {
-    width: 100%;
+    /* width: 100%; */
+    width: 780px; /* 715 */
     /* background-color: #ffd; */
     background-color: #fff;
     font-size: 10pt;
@@ -146,7 +156,7 @@ input.qinput {
     border-radius: 4pt;
     padding: 4pt;
     /* margin: 0 0 2 2; */
-    margin-bottom: 4pt;
+    margin-bottom: 1pt;
     vertical-aign: middle;
 }
 
