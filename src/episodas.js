@@ -1,6 +1,7 @@
 episodas = function(data){
     var mousedown = false;
     var curdiv = null; // letじゃ駄目
+    var buttons = []
     
     if(typeof(require) == 'undefined'){
 	crypt = exports;
@@ -27,6 +28,16 @@ episodas = function(data){
             for(var i=0;i<answers.length;i++){
 		$('#id'+i).text(answers[i]);
             }
+	}
+
+	for(var i=0;i<answers.length;i++){
+	    div = $('#id'+i)
+	    let o = {}
+	    o.x = div.offset().left;
+            o.y = div.offset().top;
+            o.w = div.width();
+            o.h = div.height();
+	    buttons[i] = o
 	}
     };
 
@@ -140,7 +151,7 @@ episodas = function(data){
 	for(var i=0;i<answers.length;i++){
             div = $('#id'+i);
             div.css('background-color','#fff');
-            div.css('width',width / 6.8);
+            div.css('width',width / 7);
             div.css('height',height / 10);
             div.css('font-size',width * 0.03);
 	    div.css('color','#000');
@@ -158,6 +169,16 @@ episodas = function(data){
 	    div.css('border-width','1px');
             // div.css('box-shadow','5px 5px 4px #888');
 	}
+	//for(var i=0;i<answers.length;i++){
+	//    div = $('#id'+i)
+	//    let o = {}
+	//    o.x = div.offset().left;
+        //    o.y = div.offset().top;
+        //    o.w = div.width();
+        //    o.h = div.height();
+	//    buttons[i] = o
+	//}
+
 	$('#question').css('font-size',width * 0.05);
 	$('#question').css('margin-top','10px');
     }
@@ -193,24 +214,42 @@ episodas = function(data){
 
 	var mousex = (e.pageX ? e.pageX : e.originalEvent.touches[0].pageX);
 	var mousey = (e.pageY ? e.pageY : e.originalEvent.touches[0].pageY);
+
+	// これがちょっと遅いかもしれないので改良したい
+	//for(var i=0;i<answers.length;i++){
+        //    let buttondiv = $('#id'+i);
+        //    buttonx = buttondiv.offset().left;
+        //    buttony = buttondiv.offset().top;
+        //    buttonw = buttondiv.width();
+        //    buttonh = buttondiv.height();
+        //    if(buttonx < mousex && buttonx+buttonw > mousex &&
+        //       buttony < mousey && buttony+buttonh > mousey){
+	//	if(!curdiv || (curdiv.attr('id') != buttondiv.attr('id'))){
+        //            if(curdiv){
+	//		mouseleave(curdiv);
+        //            }
+        //            mouseenter(buttondiv);
+        //            curdiv = buttondiv;
+	//	}
+	//	return;
+        //    }
+	//}
 	for(var i=0;i<answers.length;i++){
-            let buttondiv = $('#id'+i);
-            buttonx = buttondiv.offset().left;
-            buttony = buttondiv.offset().top;
-            buttonw = buttondiv.width();
-            buttonh = buttondiv.height();
-            if(buttonx < mousex && buttonx+buttonw > mousex &&
-               buttony < mousey && buttony+buttonh > mousey){
-		if(!curdiv || (curdiv.attr('id') != buttondiv.attr('id'))){
+            if(buttons[i].x < mousex && buttons[i].x+buttons[i].w > mousex &&
+               buttons[i].y < mousey && buttons[i].y+buttons[i].h > mousey){
+		console.log("button pushed")
+		if(!curdiv || (curdiv.attr('id') != ("id"+i))){
                     if(curdiv){
 			mouseleave(curdiv);
                     }
+		    buttondiv = $('#id'+i);
                     mouseenter(buttondiv);
                     curdiv = buttondiv;
 		}
 		return;
             }
 	}
+
 	if(curdiv){
             mouseleave(curdiv);
 	}
