@@ -38,7 +38,7 @@ episodas = function(data){
 	}
 	$('#das').children().remove();
 
-	if(typeof(editor) != 'undefined'){ // 編集画面のときだけダウンロードボタン処理
+	if(typeof(editor) != 'undefined'){ // 編集画面のときだけHTMLデータ取得ボタン処理
 	    lib.lib.make_html(data);
 	}
 	

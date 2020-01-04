@@ -7,7 +7,7 @@
 lib = {
     make_html: function(data){
 	// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA
-	// これでダウンロードリンクができる
+	// これでHTML取得リンクができる
 	var a = $('#htmlbutton');
 	a.attr('download','RunEpisoPass.html');
 	
