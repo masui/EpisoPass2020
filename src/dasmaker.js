@@ -1,18 +1,13 @@
 //
-// EpisoDASのDASパタンを入力させてJSON生成
-//
-
-//
-// DASボタンを押したときこれらの値がセーブされる
+// EpisoDASのDASパタンを登録
 //
 
 dasmaker = function(data,name,seed,selections){
     var mousedown = false;
-    var curdiv = null; // letじゃ駄目
+    var curdiv = null; // 現在選択中のdiv (letじゃ駄目)
     
     var selected = [];
-
-    var finished = false;
+    var finished = false; // finish() が二度呼ばれるのを防止
     
     var browserWidth = function(){  
 	if(window.innerWidth){ return window.innerWidth; }  
@@ -33,11 +28,11 @@ dasmaker = function(data,name,seed,selections){
 	}
     }
     
-    function finish(){
-	if(finished) return;
+    function finish(){ // DAS登録後の処理
+	if(finished) return; // 何故か二度呼ばれることを防止
 	finished = true;
 
-	// データを複製
+	// dataを複製
 	var newdata = {}
 	newdata['name'] = data['name']
 	newdata['seed'] = data['seed']
@@ -52,7 +47,7 @@ dasmaker = function(data,name,seed,selections){
 	    newdata['qas'].push(o);
 	}
 	
-	// データをシャフル
+	// newdataの回答リストをシャフル
 	for(let i=0;i<selected.length;i++){
 	    var answers = newdata['qas'][i].answers
 	    var rightanswer = answers[selections[i]]; // 正答
@@ -63,8 +58,9 @@ dasmaker = function(data,name,seed,selections){
 	    for(let j = 0; j < answers.length; j++){
 		if(answers[j] == rightanswer){
 		    /*
-		    let s = selected[i]
-		    [answers[j], answers[s]] = [answers[s], answers[j]] // 交換
+		     このコードが何故か動ず無限ループになってしまう
+		     let s = selected[i]
+		     [answers[j], answers[s]] = [answers[s], answers[j]] // 交換
 		     */
 		    let tmp = answers[j]
 		    answers[j] = answers[selected[i]]
@@ -85,6 +81,8 @@ dasmaker = function(data,name,seed,selections){
 	// width = browserWidth();
 	let width = $('#contents').width();
 	let height = browserHeight();
+
+	// 回答を並べる。"dmid0" のようなIDになっている
 	for(var i=0;i<answers.length;i++){
 	    div = $('#dmid'+i);
 	    div.css('background-color','#fff');
@@ -108,7 +106,10 @@ dasmaker = function(data,name,seed,selections){
 	}
 	$('#dmquestion').css('font-size',width * 0.06);
     }
-    
+
+    //
+    // クリックイベントもドラッグイベントもmouseenter(), mouseleave()で扱う
+    //
     function mouseenter(div){
 	curdiv = div;
 	if(mousedown){
@@ -120,7 +121,6 @@ dasmaker = function(data,name,seed,selections){
     function mouseleave(div){
 	if(mousedown){
             curdiv.css('background-color','#fff');
-	    
 	    if(selected.length == qas.length){
 		finish();
             }
@@ -192,7 +192,6 @@ dasmaker = function(data,name,seed,selections){
 	for(var i=0;i<answers.length;i++){
 	    var div = $('<div>');
 	    div.css('float','left');
-	    div.attr('index',i);
 	    div.attr('id','dmid'+i);
 	    center.append(div);
 	    
