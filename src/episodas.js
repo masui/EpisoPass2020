@@ -63,8 +63,6 @@ episodas = function(data){
 	passspan.css('border-style','solid');
 	passspan.css('border-width','1pt');
 	passspan.css('border-color','#000');
-	//passspan.attr('display','none');
-	//passspan.hide();
 	center.append(passspan);
 	
 	center.append($('<p>'));
@@ -163,7 +161,12 @@ episodas = function(data){
 	$('#question').css('font-size',width * 0.05);
 	$('#question').css('margin-top','10px');
     }
-    
+
+    //
+    // ClickまたはDragで選択する工夫
+    // mouseenterイベントとかがあまり信用できないので自力でやる
+    // dasmaker.jsと共通化したいのだが
+    //
     function mouseenter(div){
 	curdiv = div;
 	if(mousedown){
