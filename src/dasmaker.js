@@ -7,9 +7,6 @@
 //
 
 dasmaker = function(data,name,seed,selections){
-    //console.log('dasmaker')
-    //console.log(data)
-    
     var mousedown = false;
     var curdiv = null; // letじゃ駄目
     
@@ -40,8 +37,6 @@ dasmaker = function(data,name,seed,selections){
 	if(finished) return;
 	finished = true;
 
-	console.log(selected)
-
 	// データを複製
 	var newdata = {}
 	newdata['name'] = data['name']
@@ -50,12 +45,8 @@ dasmaker = function(data,name,seed,selections){
 	for(let i = 0; i < data['qas'].length; i++){
 	    let o = {};
 	    o['question'] = data['qas'][i]['question']
-	    // o['answers'] =  data['qas'][i]['answers'].slice(); // 配列複製
 	    o['answers'] = []
-	    //console.log(data['qas'][i]['answers'].length)
 	    for(let j=0;j<data['qas'][i]['answers'].length;j++){
-		//console.log(j + ' ' + data['qas'][i]['answers'][j])
-		//o['answers'].push(data['qas'][i]['answers'][j] + '')
 		o['answers'][j] = data['qas'][i]['answers'][j]
 	    }
 	    newdata['qas'].push(o);
@@ -64,26 +55,27 @@ dasmaker = function(data,name,seed,selections){
 	// データをシャフル
 	for(let i=0;i<selected.length;i++){
 	    var answers = newdata['qas'][i].answers
-	    //var curanswer = answers[selected[i]];
-	    var rightanswer = answers[selections[i]];
+	    var rightanswer = answers[selections[i]]; // 正答
 
-	    shuffle(answers);
+	    shuffle(answers); // 答をランダムに並べかえ
 
-	    for(var j = 0; j < answers.length; j++){
+	    // 正答がselected[i]の位置に来るようにする
+	    for(let j = 0; j < answers.length; j++){
 		if(answers[j] == rightanswer){
-		    tmp = answers[j]
+		    /*
+		    let s = selected[i]
+		    [answers[j], answers[s]] = [answers[s], answers[j]] // 交換
+		     */
+		    let tmp = answers[j]
 		    answers[j] = answers[selected[i]]
 		    answers[selected[i]] = tmp
-		    //answers[j] = curanswer;
-		    //answers[selected[i]] = rightanswer;
 		    break;
 		}
 	    }
-
 	    newdata.qas[i].answers = answers
 	}
 
-	// alert('DASデータを生成しました。確認して下さい。');
+	//alert('DASデータを生成しました。確認して下さい。');
 
 	lib.lib.make_html(newdata);
 	episodas.episodas(newdata);
