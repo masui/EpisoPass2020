@@ -1,4 +1,4 @@
-all: compile template index pack embed scp cp
+all: compile template index dasmaker pack embed scp cp
 
 install:
 	npm install
@@ -12,10 +12,13 @@ compile:
 	coffee -c src/crypt.coffee
 
 index:
-	erb src/index.erb > src/index.html
+	erb src/index.html.erb > src/index.html
+
+dasmaker:
+	erb src/dasmaker.js.erb > src/dasmaker.js
 
 # episodas.erb, sampledata.json から dastemplate.js をつくる
-template: src/episodas.erb src/sampledata.json
+template: src/episodas.html.erb src/sampledata.json
 	ruby bin/dastemplate.rb > src/dastemplate.js
 
 clean:

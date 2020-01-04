@@ -114,6 +114,17 @@ dasmaker = function(data,selections){
 	curdiv = div;
 	if(mousedown){
             curdiv.css('background-color','#f3f3f3');
+	    // curdiv.css('background-image','url("http://kenz0.s201.xrea.com/images/2013/02/04/01.gif")')
+	    //curdiv.css('background-image','url("https://i.gifer.com/SzjJ.gif")')
+	    //curdiv.css('background-image','url("https://thumbs.gfycat.com/PartialSadImperatorangel-size_restricted.gif")')
+	    //curdiv.css('background-image','url("https://media.giphy.com/media/vxcuu6bLZDdm0/200.gif")')
+	    //curdiv.css('background-image','url("https://i.imgur.com/U5Ccc0f.gif")')
+	    <% require 'base64' %>
+	    s = '<%= Base64.encode64(File.read("src/fb67c5f5c0b3964dd3f986fb4f0d891c.gif")).gsub("\n","") %>'
+	    curdiv.css('background-image',`url("data:image/gif;base64,${s}")`);
+	    w = curdiv.css('width')
+	    h = curdiv.css('height')
+	    //curdiv.css('background-size',`${w} ${h}`)
 	    selected.push(curdiv.attr('id').replace(/dmid/,''))
 	}
     }
@@ -121,7 +132,9 @@ dasmaker = function(data,selections){
     function mouseleave(div){
 	if(mousedown){
             curdiv.css('background-color','#fff');
+	    curdiv.css('background-image','');
 	    if(selected.length == qas.length){
+	    	mousedown = false
 		finish();
             }
 	}

@@ -167,17 +167,7 @@ episodas = function(data){
             div.css('border-radius',width*0.01);
             div.css('border-color','#000');
 	    div.css('border-width','1px');
-            // div.css('box-shadow','5px 5px 4px #888');
 	}
-	//for(var i=0;i<answers.length;i++){
-	//    div = $('#id'+i)
-	//    let o = {}
-	//    o.x = div.offset().left;
-        //    o.y = div.offset().top;
-        //    o.w = div.width();
-        //    o.h = div.height();
-	//    buttons[i] = o
-	//}
 
 	$('#question').css('font-size',width * 0.05);
 	$('#question').css('margin-top','10px');
@@ -234,6 +224,7 @@ episodas = function(data){
 	//	return;
         //    }
 	//}
+	// こんなので速度は変わらない気もする... 無意味かも
 	for(var i=0;i<answers.length;i++){
             if(buttons[i].x < mousex && buttons[i].x+buttons[i].w > mousex &&
                buttons[i].y < mousey && buttons[i].y+buttons[i].h > mousey){
