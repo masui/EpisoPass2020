@@ -101,9 +101,9 @@ episodas = function(data){
 	again.click(function(event){
             init();
 	});
-	again.hide();
 	center.append(again);
 
+	// 生成された文字列をコピー
 	passspan.select();
 	document.execCommand("copy");
 
