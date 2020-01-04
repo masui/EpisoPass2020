@@ -101,7 +101,6 @@ episodas = function(data){
 	});
 	center.append(again);
 
-	console.log('select');
 	passspan.select();
 	document.execCommand("copy");
 	passspan.hide();

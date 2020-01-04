@@ -13,11 +13,6 @@ dasmaker = function(data,name,seed,selections){
     var mousedown = false;
     var curdiv = null; // letじゃ駄目
     
-    //var width, height;
-    //var qas, answers;
-    //var mousediv = null;
-    //var mousedown = false;
-    
     var selected = [];
 
     var finished = false;
@@ -35,26 +30,17 @@ dasmaker = function(data,name,seed,selections){
     };
     
     function shuffle(array){
-	//var a = array.slice()
-	//console.log("shuffle init")
-	//console.log(array)
 	for(var i = array.length - 1; i > 0; i--){
 	    var r = Math.floor(Math.random() * (i + 1));
-	    //let tmp = array[i]
-	    //console.log(tmp + ' + ' + array[r])
-	    //array[i] = array[r]
-	    //array[r] = tmp
 	    [array[i], array[r]] = [array[r], array[i]]
 	}
-	//console.log('shuffle')
-	//console.log(array)
     }
     
     function finish(){
 	if(finished) return;
 	finished = true;
 
-	//console.log(selected)
+	console.log(selected)
 
 	// データを複製
 	var newdata = {}
@@ -74,37 +60,30 @@ dasmaker = function(data,name,seed,selections){
 	    }
 	    newdata['qas'].push(o);
 	}
-
-	//newdata = JSON.parse(JSON.stringify(data));
 	
 	// データをシャフル
 	for(let i=0;i<selected.length;i++){
-	    //console.log('=========')
 	    var answers = newdata['qas'][i].answers
-	    var curanswer = answers[selected[i]];
-	    //console.log('curanswer = '+curanswer);
-	    //console.log(selected[i])
-	    //console.log(answers)
+	    //var curanswer = answers[selected[i]];
 	    var rightanswer = answers[selections[i]];
-	    shuffle(answers);
-	    //console.log(answers)
 
-	    // var curanswer = answers[selected[i]];
-	    //console.log("curanswer = " + curanswer)
-	    if(curanswer != rightanswer){
-		for(var j = 0; j < answers.length; j++){
-		    if(answers[j] == rightanswer){
-			answers[j] = curanswer;
-			answers[selected[i]] = rightanswer;
-			break;
-		    }
+	    shuffle(answers);
+
+	    for(var j = 0; j < answers.length; j++){
+		if(answers[j] == rightanswer){
+		    tmp = answers[j]
+		    answers[j] = answers[selected[i]]
+		    answers[selected[i]] = tmp
+		    //answers[j] = curanswer;
+		    //answers[selected[i]] = rightanswer;
+		    break;
 		}
 	    }
+
 	    newdata.qas[i].answers = answers
 	}
 
 	// alert('DASデータを生成しました。確認して下さい。');
-	//console.log(newdata);
 
 	lib.lib.make_html(newdata);
 	episodas.episodas(newdata);
@@ -112,8 +91,8 @@ dasmaker = function(data,name,seed,selections){
     
     function initsize(){
 	// width = browserWidth();
-	width = $('#contents').width();
-	height = browserHeight();
+	let width = $('#contents').width();
+	let height = browserHeight();
 	for(var i=0;i<answers.length;i++){
 	    div = $('#dmid'+i);
 	    div.css('background-color','#fff');
@@ -193,7 +172,6 @@ dasmaker = function(data,name,seed,selections){
 	
 	//alert(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
 	
-	// mousediv = null;
 	mousedown = false;
 	selected = [];
 	
