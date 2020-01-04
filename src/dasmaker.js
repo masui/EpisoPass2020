@@ -2,7 +2,7 @@
 // EpisoDASのDASパタンを登録
 //
 
-dasmaker = function(data,name,seed,selections){
+dasmaker = function(data,selections){
     var mousedown = false;
     var curdiv = null; // 現在選択中のdiv (letじゃ駄目)
     

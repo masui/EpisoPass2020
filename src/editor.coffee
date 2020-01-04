@@ -19,8 +19,6 @@ editor = (data) =>
     ->
       answer[q] = a
       [0...qas[q]['answers'].length].forEach (i) ->
-        # $("#answer#{q}-#{i}").css 'background-color', if i == a then '#ccf' else '#fff' xxxx
-        #$("#answer#{q}-#{i}").css 'border-color', if i == a then '#00f' else '#555'
         $("#answer#{q}-#{i}").css 'background-color', if i == a then '#555' else '#fff'
         $("#answer#{q}-#{i}").css 'color', if i == a then '#fff' else '#555'
       calcpass true
@@ -203,18 +201,12 @@ editor = (data) =>
 
     $("#dasbutton").off() # 何度も登録されて困った
     $("#dasbutton").click ->
-      dasmaker.dasmaker(data,name,seed,answer);
+      dasmaker.dasmaker(data,answer);
 
     $("#easybutton").click ->
       easy.easy();
       
     $('#seed').val data.seed
-      
-    jsonbutton = $('#jsonbutton');
-    jsonbutton.attr('download','qa.json');
-    blob = new Blob [JSON.stringify(data)], {type: "text/json;charset=utf-8"}
-    url = window.webkitURL.createObjectURL(blob);
-    jsonbutton.attr('href',url)
       
     # Drag&Drop対応
     $('body')

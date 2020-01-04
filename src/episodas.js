@@ -82,12 +82,13 @@ episodas = function(data){
 	show.click(function(event){
 	    passspan.show();
 	    show.hide();
+	    again.show();
 	});
 	center.append(show);
 
 	var again = $('<input>');
 	again.attr('type','button');
-	again.attr('value','もう一度');
+	again.attr('value','再実行');
 	again.css('font-size',width*0.05);
 	again.css('border-radius',width*0.015);
 	again.css('margin',width*0.01);
@@ -99,6 +100,7 @@ episodas = function(data){
 	again.click(function(event){
             init();
 	});
+	again.hide();
 	center.append(again);
 
 	passspan.select();
