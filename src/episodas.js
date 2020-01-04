@@ -29,9 +29,10 @@ episodas = function(data){
             }
 	}
     };
-    
-    function finish(){
+
+    function finish(){ // DASパタン入力終了
 	// masui_secret.box.html のようなURLのときはScrapboxページに飛ぶ
+	// (EpisoBoxの仕様だが不要かも)
 	if(location.href.match(/\.box\.html$/)){
 	    location.href = 'https://scrapbox.io/' + crypt.crypt(data.seed,secretstr());
 	    return
@@ -42,18 +43,18 @@ episodas = function(data){
 	    lib.lib.make_html(data);
 	}
 	
-	// パスワードを表示!!
 	var newpass = crypt.crypt(data.seed,secretstr());
 	var center = $('<center>');
 	$('#das').append(center);
 	
 	center.append($('<p>'));
 	
-	// これはできないのか
+	// 生成されたパスワードを表示
+	// 値をコピーできるようにするため<input>を利用
 	var passspan = $('<input>');
 	passspan.val(newpass);
-	//passspan.text(newpass);
 	passspan.attr('type','text');
+	passspan.attr('id','passspan');
 	passspan.css('font-size',width*0.06);
 	passspan.css('border-radius',width*0.015);
 	passspan.css('margin',width*0.01);
@@ -105,7 +106,18 @@ episodas = function(data){
 
 	passspan.select();
 	document.execCommand("copy");
-	passspan.hide();
+
+	if(typeof(editor) == 'undefined'){ // 利用画面
+	    passspan.hide()
+	    show.show()
+	    again.hide()
+	}
+	else { // DAS生成中の確認画面
+	    passspan.show()
+	    passspan.blur() // 文字列を非選択状態にする
+	    show.hide()
+	    again.show()
+	}
     }
     
     secretstr = function() {
@@ -165,7 +177,7 @@ episodas = function(data){
             curdiv.css('background-color','#fff');
 	    showQA();
 	    
-	    if(selected.length == qas.length){
+	    if(selected.length == qas.length){ // DAS入力終了
 		finish();
             }
 	}
@@ -271,12 +283,13 @@ episodas = function(data){
     init();
 
     // ファイル名を サービス名_アカウント と解釈
-    // e.g. Amazon_masui@pitecan.com
-    m = location.href.match(/\/(\w+_[\w\.@]+)\.html$/)
+    //  e.g. Amazon_masui@pitecan.com
+    // 拡張機能から参照できるように <body> の属性として登録する
+    let m = location.href.match(/\/(\w+_[\w\.@]+)\.html$/)
     if(m){
 	data['name'] = m[1]
 	$('body').attr('episodata',JSON.stringify(data));
-	console.log($('body').attr('episodata'))
+	// console.log($('body').attr('episodata'))
     }
 };
 
