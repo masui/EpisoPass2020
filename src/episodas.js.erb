@@ -181,7 +181,12 @@ episodas = function(data){
     function mouseenter(div){
 	curdiv = div;
 	if(mousedown){
-            curdiv.css('background-color','#f3f3f3');
+            // curdiv.css('background-color','#f3f3f3');
+	    <% require 'base64' %>
+	    curdiv.css('background-image','url("data:image/gif;base64,<%= Base64.encode64(File.read("src/noise.gif")).gsub("\n","") %>")');
+	    w = curdiv.css('width')
+	    h = curdiv.css('height')
+	    curdiv.css('background-size',`${w} ${h}`)
 	    selected.push(curdiv.attr('id').replace(/id/,''))
 	}
     }
@@ -189,6 +194,7 @@ episodas = function(data){
     function mouseleave(div){
 	if(mousedown){
             curdiv.css('background-color','#fff');
+	    curdiv.css('background-image','');
 	    showQA();
 	    
 	    if(selected.length == qas.length){ // DAS入力終了

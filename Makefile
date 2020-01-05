@@ -1,4 +1,4 @@
-all: compile template index dasmaker pack embed scp cp
+all: compile dasmaker episodas template index pack embed scp cp
 
 install:
 	npm install
@@ -16,6 +16,9 @@ index:
 
 dasmaker:
 	erb src/dasmaker.js.erb > src/dasmaker.js
+
+episodas:
+	erb src/episodas.js.erb > src/episodas.js
 
 # episodas.erb, sampledata.json から dastemplate.js をつくる
 template: src/episodas.html.erb src/sampledata.json
