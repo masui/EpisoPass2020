@@ -199,6 +199,11 @@ dasmaker = function(data,selections){
 	qdiv.css('align-items','center');
 	qdiv.attr('id','dmquestion');
 	center.append(qdiv);
+
+	let comment = $('<span>');
+	comment.text(`${qas.length}個のボタンを押すかなぞってパタンを登録して下さい`);
+	center.append(comment)
+	
 	center.append($('<p>'));
 	
 	// 回答領域

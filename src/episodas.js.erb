@@ -75,7 +75,7 @@ episodas = function(data){
 	passspan.css('border-width','1pt');
 	passspan.css('border-color','#000');
 	center.append(passspan);
-	
+
 	center.append($('<p>'));
 	
 	var show = $('<input>');
@@ -234,7 +234,6 @@ episodas = function(data){
 	for(var i=0;i<answers.length;i++){
             if(buttons[i].x < mousex && buttons[i].x+buttons[i].w > mousex &&
                buttons[i].y < mousey && buttons[i].y+buttons[i].h > mousey){
-		console.log("button pushed")
 		if(!curdiv || (curdiv.attr('id') != ("id"+i))){
                     if(curdiv){
 			mouseleave(curdiv);
@@ -280,6 +279,12 @@ episodas = function(data){
 	qdiv.attr('id','question');
 	center.append(qdiv);
 
+	if(typeof(editor) != 'undefined'){
+	    let comment = $('<span>');
+	    comment.text('DASパタンを押すかなぞって確認して下さい')
+	    center.append(comment)
+	}
+	
 	center.append($('<p>'));
 
 	// 回答領域
