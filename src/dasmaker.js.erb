@@ -120,7 +120,8 @@ dasmaker = function(data,selections){
 	    //curdiv.css('background-image','url("https://media.giphy.com/media/vxcuu6bLZDdm0/200.gif")')
 	    //curdiv.css('background-image','url("https://i.imgur.com/U5Ccc0f.gif")')
 	    <% require 'base64' %>
-	    s = '<%= Base64.encode64(File.read("src/fb67c5f5c0b3964dd3f986fb4f0d891c.gif")).gsub("\n","") %>'
+	    //s = '= Base64.encode64(File.read("src/fb67c5f5c0b3964dd3f986fb4f0d891c.gif")).gsub("\n","") %>'
+	    s = '<%= Base64.encode64(File.read("src/noise.gif")).gsub("\n","") %>'
 	    curdiv.css('background-image',`url("data:image/gif;base64,${s}")`);
 	    w = curdiv.css('width')
 	    h = curdiv.css('height')
