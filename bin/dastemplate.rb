@@ -14,8 +14,7 @@ puts Base64.encode64(template.result)
 
 print <<EOF
 `
-
-let buff = new Buffer(encoded, 'base64');
+var buff = require('buffer');
 let dastemplate = buff.toString('utf8');
 
 exports.dastemplate = dastemplate;
