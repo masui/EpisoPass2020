@@ -10,7 +10,7 @@ lib = {
 	// これでHTML取得リンクができる
 	var a = $('#htmlbutton');
 	a.attr('download','RunEpisoPass.html');
-	
+
 	lines = dastemplate.dastemplate.split(/\n/);
 	for(let i=0;i<lines.length;i++){
 	    if(lines[i].match(/REPLACE_THIS_LINE$/)){
@@ -20,7 +20,8 @@ lib = {
 	html = lines.join("\n")
 	
 	var blob = new Blob([ html ], { type: "text/html" });
-	var url = window.webkitURL.createObjectURL(blob);
+	//var url = window.webkitURL.createObjectURL(blob);
+	var url = URL.createObjectURL(blob);
 	a.attr('href',url)
     },
     

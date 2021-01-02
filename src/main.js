@@ -7,9 +7,9 @@ editor = require("./editor.js")
 episodas = require("./episodas.js")
 crypt = require("./crypt.js")
 dasmaker = require("./dasmaker.js")
-dastemplate = require("./dastemplate.js")
 easy = require("./easy.js")
 lib = require("./lib.js")
+dastemplate = require("./dastemplate.js")
 
 data = require("./sampledata.json")
 
