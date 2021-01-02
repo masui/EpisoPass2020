@@ -55,7 +55,7 @@ episodas = function(data){
 	}
 	
 	var newpass = crypt.crypt(data.seed,secretstr());
-	var m = location.href.match(/([a-zA-Z\-]+)_invitation\.html$/)
+	var m = location.href.match(/([a-zA-Z\-]+)_invitation\.html/)
 	if(m){
 	    var invitationlink = `https://scrapbox.io/projects/${m[1]}/invitations/${newpass}`
 	    location.href = invitationlink;
