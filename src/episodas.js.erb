@@ -48,6 +48,10 @@ episodas = function(data){
 	    location.href = 'https://scrapbox.io/' + crypt.crypt(data.seed,secretstr());
 	    return
 	}
+	if(location.href.match(/EpisoPassCall/)){
+	    location.href = '/EpisoPassResult?' + escape(crypt.crypt(data.seed,secretstr()));
+	    return
+	}
 	$('#das').children().remove();
 
 	if(typeof(editor) != 'undefined'){ // 編集画面のときだけHTMLデータ取得ボタン処理
