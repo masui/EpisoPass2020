@@ -48,7 +48,8 @@ episodas = function(data){
 	    location.href = 'https://scrapbox.io/' + crypt.crypt(data.seed,secretstr());
 	    return
 	}
-	if(location.href.match(/EpisoPassCall/)){
+	if(location.href.match(/EpisoPassCall/)){ // https://scrapbox.io/masui/EpisoPassをプログラムから呼び出して使う工夫
+						  // CLIなどからEpisoPassを開く
 	    location.href = '/EpisoPassResult?' + escape(crypt.crypt(data.seed,secretstr()));
 	    return
 	}
