@@ -15,7 +15,7 @@
       <div style="padding:10px;background-color:#ffffff;">
 	<div class='topmenu'>
 	  <span id="descbutton"><div class='topmenuitem'>EpisoPass概要</div></span>
-	  <span id="episopoolbutton"><div class='topmenuitem'>問題プール作成</div></span>
+	  <span id="episopoolbutton"><div class='topmenuitem'>問題プール編集</div></span>
 	  <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
 	  <span id="dasbutton"><div class='topmenuitem'>EpisoPassページ作成</div></span>
 	  <!-- <a id="htmlbutton"><div class='topmenuitem'>EpisoPassページダウンロード</div></a> -->
@@ -38,6 +38,8 @@
 	  </li>
 	  <li>
 	    EpisoPassページのデータは<a href='#' onclick="editor.editor()"><b>問題編集</b></a>ページで作成します。
+	  </li>
+          <li>
 	    上の<a href='#' onclick="editor.editor()"><b>問題編集</b></a>ボタンから編集ページに移動して問題を作成し、
 	    <a href='#' onclick="dasmaker.dasmaker(data,editor.answer())"><b>EpisoPassページ作成</b></a>で<b>DASパタン</b>を指定してから「ダウンロード」をクリックすると、
 	    パスワードを生成するためのEpisoPassページのHTMLファイル(<code>RunEpisoPass.html</code>)を取得できます。
@@ -52,12 +54,13 @@
 	
 	<h3>問題を簡単に作成する</h3>
 	<ul>
-	  <li><a href='#' onclick="episopool.episopool()"><b>問題プール作成</b></a>メニューを選択すると、EpisoPass問題を作成するための問題データベースを作成できます。</li>
-	  <li>問題プール作成ページで回答リストと問題リストを作成しておくと、<a href='#' onclick="editor.editor()"><b>問題編集</b></a>メニューでそのデータを利用できます。</li>
+	  <li><a href='#' onclick="episopool.episopool()"><b>問題プール編集</b></a>メニューを選択すると、EpisoPass問題を作成するための問題データベースを作成できます。</li>
+	  <li>問題プール編集ページで回答リストと問題リストを作成しておくと、<a href='#' onclick="editor.editor()"><b>問題編集</b></a>メニューでそのデータを利用できます。</li>
 	  <li>問題プールデータはJSON型式のローカルファイルとしてセーブ/ロードできます。</li>
+	  <li><a href="https://s3-ap-northeast-1.amazonaws.com/masui.org/1/f/1feba39d1db3047b9fd0771852c22e41.json">問題プールデータの例</a></li>
 	</ul>
 	
-	<h3>データの再編集</h3>
+	<h3>問題の再編集</h3>
 	<ul>
 	  <li>
 	    EpisoPassページのHTMLを問題編集画面にDrag&amp;Dropすると
@@ -65,19 +68,15 @@
 	  </li>
 	</ul>
 	
-	<h3>ネット通信</h3>
+	<h3>ネット接続</h3>
 	<ul>
 	  <li>
-	    EpisoPass.html利用時にネット通信は行なわれません。
+	    EpisoPassはWeb上のサーバやデータベースを利用しません。
+	    EpisoPassページ作成時や問題プール作成時にネット通信は行なわれません。
 	  </li>
 	  <li>
 	    EpisoPassは<a href="EpisoPass.html">EpisoPass.html</a>という単一HTMLファイルで動作するので、
 	    ローカルマシンのブラウザで動かすことができます。
-	    ネットワークやサーバは不要です。
-	  </li>
-	  <li>
-	    ネットワークに接続されていない状況で問題編集ページを利用してEpisoPassページを作成/取得できますし、
-	    EpisoPassページはどこでも動かすことができます。
 	  </li>
 	</ul>
 	
@@ -92,6 +91,11 @@
 	    問題データがブラウザのローカルデータベースに保存され、
 	    そのデータが拡張機能から参照可能になります。
 	  </li>
+	</ul>
+
+	<h3>Contact</h3>
+	<ul>
+	  <li>masui@pitecan.com</li>
 	</ul>
       </div>
       
@@ -118,7 +122,7 @@
       </div>
       
       <div id="episopool" style="display:none;"> <!-- 簡単登録画面 -->
-	<h2>問題プール作成</h2>
+	<h2>問題プール編集</h2>
 
 	<ul>
 	  <li>問題プールを作っておくと簡単にEpisoPass問題を作れます。</li>
