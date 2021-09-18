@@ -44,7 +44,7 @@ $("#descbutton").click(() => lib.lib.show('#description'))
 //$("#editbutton").click(() => lib.lib.show('#editor'))
 $("#editbutton").click(() => editor.editor(data))
 $("#dasbutton").off() // 何度も登録されて困った
-$("#dasbutton").click(() => dasmaker.dasmaker(data,[]))
+$("#dasbutton").click(() => dasmaker.dasmaker(data,editor.answer()))
 $("#episopoolbutton").click(() => episopool.episopool())
 
 lib.lib.show('#description')

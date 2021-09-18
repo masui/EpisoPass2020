@@ -5,7 +5,9 @@
 #  Modified       2015/10/31 19:12:53
 #  Modified       2018/02/23 17:24:33 for heroku
 #  Modified       2019/12/23 サーバを使わないように修正
-# 
+#
+
+answer = []
 
 editor = (data) =>
   name = data.name
@@ -13,8 +15,11 @@ editor = (data) =>
   curq = 0
   cura = 0
   
-  answer = []             # answer[q] = a ... q番目の質問の答がa番目である
-  
+  answer = []             # answer[q] = a のとき、q番目の質問の答がa番目である
+  #[0...qas[0]['answers'].length].forEach (i) ->
+  #  answer[i] = 0
+  #console.log answer
+
   selfunc = (q,a) -> # q番目の質問のa番目の選択肢をクリックしたとき呼ばれる関数
     ->
       answer[q] = a
@@ -218,4 +223,7 @@ editor = (data) =>
 
   init()
 
+ans = () => answer
+  
 exports.editor = editor
+exports.answer = ans

@@ -4,7 +4,7 @@ episopool = function(){
     function init(){
 	lib.lib.show('#episopool')
 	リスト表示({リスト:pool.回答リスト, フォームid:'answers', クラス:'answerinput', 改行あり:false})
-	リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'qinput', 改行あり:true})
+	リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'questioninput', 改行あり:true})
     }
     init()
 }
@@ -41,8 +41,11 @@ function リスト表示(属性){
     重複と空エントリを削除(属性.リスト)
     let フォーム = $('#' + 属性.フォームid)
     フォーム.children().remove()
+
+    EpisoPassページ作成()
     
-    for(var i=0;i<属性.リスト.length;i++){
+    var i;
+    for(i=0;i<属性.リスト.length;i++){
 	let エントリ = $('<span>')
 	
 	$('<input>')
@@ -51,7 +54,7 @@ function リスト表示(属性){
 	    .val(属性.リスト[i])
 	    .appendTo(エントリ)
 	    .on('change',n個目の答を登録する関数(i,属性))
-	
+
 	$('<span>')
 	    .text('✖')
 	    .attr('class','check')
@@ -73,7 +76,7 @@ function リスト表示(属性){
         .attr('placeholder','(追加)')
 	.focus()
 	.appendTo(エントリ)
-	.on('change',n個目の答を登録する関数(i,属性))
+        .on('change',n個目の答を登録する関数(i,属性))
     
     フォーム.append(エントリ)
 }
@@ -93,7 +96,7 @@ function リスト表示(属性){
     if(未登録のデータの数 == 0) return
     let 新たに登録するデータ = 未登録のリスト[Math.floor(Math.random() * 未登録のデータの数)]
     pool.問題リスト.push(新たに登録するデータ)
-    リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'qinput', 改行あり:true});
+    リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'questioninput', 改行あり:true});
 }
 
 重みづけ都市選択 = function(){ // 人口の多い都市ほど選ばれやすくする
@@ -161,7 +164,7 @@ JSONデータロード = function(){
 	    pool.問題リスト = data['questions']
 	    pool.回答リスト = data['answers']
 	    リスト表示({リスト:pool.回答リスト, フォームid:'answers', クラス:'answerinput', 改行あり:false});
-	    リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'qinput', 改行あり:true});
+	    リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'questioninput', 改行あり:true});
 	    
 	    
 	    // よくわからないが <input> を作りなおさないと再ロードができない
@@ -210,7 +213,7 @@ EpisoPassページ作成 = function(){
     }
     data.qas = qas
 
-    editor.editor(data)
+    //editor.editor(data)
     
     // window.open(encodeURI(`http://episopass.com/episopass.html?questions=${qlist}&answers=${alist}`))
 }
