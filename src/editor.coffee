@@ -188,9 +188,10 @@ editor = () =>
       globaldata['qas'] = data['qas']
       globaldata['seed'] = data['seed']
 
-      #pool.問題リスト = []
-      #[0...qas.length].forEach (i) =>
-      #  pool.問題リスト.push qas[i]['question']
+      pool.問題リスト = []
+      [0...qas.length].forEach (i) =>
+        pool.問題リスト.push qas[i]['question']
+      pool.回答リスト = qas[0]['answers']
       
       $('#seed').val seed
       $("#main").children().remove()
