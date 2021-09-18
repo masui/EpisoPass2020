@@ -7,12 +7,10 @@ editor = require("./editor.js")
 episodas = require("./episodas.js")
 crypt = require("./crypt.js")
 dasmaker = require("./dasmaker.js")
-//easy = require("./easy.js")
 episopool = require("./episopool.js")
 lib = require("./lib.js")
 dastemplate = require("./dastemplate.js")
 
-//data = require("./sampledata.json")
 data = {
     "name": "EpisoPass_masui@pitecan.com",
     "seed": "EpisoPass_123456",
@@ -48,8 +46,7 @@ if(location.search[0] == '?'){ // 引数解釈
 
 // ボタンの挙動設定
 $("#descbutton").click(() => lib.lib.show('#description'))
-//$("#editbutton").click(() => lib.lib.show('#editor'))
-$("#editbutton").click(() => editor.editor(data))
+$("#editbutton").click(() => editor.editor())
 $("#dasbutton").off() // 何度も登録されて困った
 $("#dasbutton").click(() => dasmaker.dasmaker(data,editor.answer()))
 $("#episopoolbutton").click(() => episopool.episopool())

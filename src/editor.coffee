@@ -7,9 +7,13 @@
 #  Modified       2019/12/23 サーバを使わないように修正
 #
 
-answer = []
+answer = [0,0,0,0,0,0,0,0,0,0]
 
-editor = (data) =>
+editor = () =>
+  #console.log "data-----"
+  #console.log data
+
+  globaldata = data # グローバル変数「data」にアクセスするための苦しい工夫
   name = data.name
   qas = data.qas
   curq = 0
@@ -166,6 +170,8 @@ editor = (data) =>
     file = files[0]
     fileReader = new FileReader()
     fileReader.onload = (event) ->
+      # ここで「data」がどうしてもローカルになってしまうので
+      # 「globaldata」というのを使う (苦しい!)
       s = event.target.result # 読んだファイルの内容
       if(s[0] == "{")
         data = JSON.parse s
@@ -178,6 +184,14 @@ editor = (data) =>
             data = JSON.parse json
       qas = data['qas']
       seed = data['seed']
+
+      globaldata['qas'] = data['qas']
+      globaldata['seed'] = data['seed']
+
+      #pool.問題リスト = []
+      #[0...qas.length].forEach (i) =>
+      #  pool.問題リスト.push qas[i]['question']
+      
       $('#seed').val seed
       $("#main").children().remove()
       maindiv()
