@@ -42,7 +42,7 @@ function リスト表示(属性){
     let フォーム = $('#' + 属性.フォームid)
     フォーム.children().remove()
 
-    EpisoPassページ作成()
+    EpisoPassデータ作成()
     
     var i;
     for(i=0;i<属性.リスト.length;i++){
@@ -191,7 +191,7 @@ function データシャッフル(リスト){
     }
 }
 
-EpisoPassページ作成 = function(){
+EpisoPassデータ作成 = function(){
     let 問題数 = pool.問題リスト.length
     let リスト = []
     for(var i=0;i<問題数;i++){
@@ -212,10 +212,6 @@ EpisoPassページ作成 = function(){
 	qas.push(o)
     }
     data.qas = qas
-
-    //editor.editor(data)
-    
-    // window.open(encodeURI(`http://episopass.com/episopass.html?questions=${qlist}&answers=${alist}`))
 }
 
 exports.episopool = episopool
@@ -227,4 +223,4 @@ exports.重みづけランダムに都市を追加 = 重みづけランダムに
 
 exports.JSONデータセーブ = JSONデータセーブ
 exports.JSONデータロード = JSONデータロード
-exports.EpisoPassページ作成 = EpisoPassページ作成
+exports.EpisoPassデータ作成 = EpisoPassデータ作成

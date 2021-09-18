@@ -12,8 +12,15 @@ episopool = require("./episopool.js")
 lib = require("./lib.js")
 dastemplate = require("./dastemplate.js")
 
-data = require("./sampledata.json")
+//data = require("./sampledata.json")
+data = {
+    "name": "EpisoPass_masui@pitecan.com",
+    "seed": "EpisoPass_123456",
+    "qas": []
+}
 pool = require("./samplepool.json")
+
+episopool.EpisoPassデータ作成()
 
 if(location.search[0] == '?'){ // 引数解釈
     let pair = location.search.substring(1).split('&');
