@@ -78,7 +78,10 @@
 	
 	<h3>問題を簡単に作成する</h3>
 	<ul>
-	  <li>「問題作成支援」ページで回答リストと質問リストを入力すると問題データを簡単に作成できます。</li>
+	  <li>「問題プール作成」メニューを選択すると、EpisoPass問題を作成するための問題プールを作成できます。</li>
+	  <li>問題プール作成ページで回答リストと問題リストを入力しておくと、「問題編集」メニューでそのデータを利用できます。</li>
+	  <li>問題プールデータはローカルファイルとしてセーブ/ロードできます</li>
+	  <!--
 	  <li>
 	    問題と回答のリストをScrapboxに用意しておけば、
 	    <a href="https://github.com/masui/EpisoQ">episoq</a>
@@ -93,6 +96,7 @@
 	    <br>
 	    <code>% episoq プロジェクト名 ページ名</code>
 	  </li>
+	  -->
 	</ul>
 	
 	<h3>ブラウザ拡張機能</h3>
@@ -142,10 +146,10 @@
 	<blockquote>
 	  <form id="saveload">
 	    <input type="button" value="データセーブ" onclick="episopool.JSONデータセーブ()" style="margin:3px;" />
-	    ここで作成したデータをJSON型式でローカルファイルにセーブします
+	    ここで作成した問題プールデータをJSON型式でローカルファイルにセーブします
 	    <br/>
             <input type="button" value="データロード" onclick="$('#fileload').click()"  style="margin:3px;"/>
-	    JSONデータをローカルファイルから読み込みます
+	    問題プールのJSONデータをローカルファイルから読み込みます
 	    <!--
 	    <br/>
             <input type="button" value="問題作成" onclick="episopool.EpisoPassページ作成()"  style="margin:3px;"/>
