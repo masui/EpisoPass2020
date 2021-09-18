@@ -1,4 +1,6 @@
-all: compile dasmaker episodas template index pack embed scp cp
+all: compile dasmaker episodas template index pack embed
+
+allcp: compile dasmaker episodas template index pack embed scp cp
 
 install:
 	npm install

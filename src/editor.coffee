@@ -193,18 +193,19 @@ editor = (data) =>
     $('#pass').keyup (e) ->
       calcseed()
 
-    $("#descbutton").click ->
-      lib.lib.show('#description')
-        
-    $("#editbutton").click ->
-      lib.lib.show('#editor')
-
-    $("#dasbutton").off() # 何度も登録されて困った
-    $("#dasbutton").click ->
-      dasmaker.dasmaker(data,answer);
-
-    $("#easybutton").click ->
-      easy.easy();
+#    これはmainに書いておくべきなので移動した  
+#    $("#descbutton").click ->
+#      lib.lib.show('#description')
+#        
+#    $("#editbutton").click ->
+#      lib.lib.show('#editor')
+#
+#    $("#easybutton").click ->
+#      easy.easy();
+#
+#    $("#dasbutton").off() # 何度も登録されて困った
+#    $("#dasbutton").click ->
+#      dasmaker.dasmaker(data,answer);
       
     $('#seed').val data.seed
       

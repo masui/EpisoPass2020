@@ -7,6 +7,8 @@ body {
     color: var(--col);
     padding-top: 55px;
     padding-right: 0;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 div {

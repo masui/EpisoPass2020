@@ -37,4 +37,10 @@ if(location.search[0] == '?'){ // 引数解釈
     data['qas'] = qas
 }
 
+$("#descbutton").click(() => lib.lib.show('#description'))
+$("#editbutton").click(() => lib.lib.show('#editor'))
+$("#dasbutton").off() // 何度も登録されて困った
+$("#dasbutton").click(() => dasmaker.dasmaker(data,[]))
+$("#easybutton").click(() => easy.easy())
+
 editor.editor(data)
