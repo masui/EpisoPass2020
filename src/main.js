@@ -13,6 +13,7 @@ lib = require("./lib.js")
 dastemplate = require("./dastemplate.js")
 
 data = require("./sampledata.json")
+pool = require("./samplepool.json")
 
 if(location.search[0] == '?'){ // 引数解釈
     let pair = location.search.substring(1).split('&');
@@ -40,9 +41,11 @@ if(location.search[0] == '?'){ // 引数解釈
 
 // ボタンの挙動設定
 $("#descbutton").click(() => lib.lib.show('#description'))
-$("#editbutton").click(() => lib.lib.show('#editor'))
+//$("#editbutton").click(() => lib.lib.show('#editor'))
+$("#editbutton").click(() => editor.editor(data))
 $("#dasbutton").off() // 何度も登録されて困った
 $("#dasbutton").click(() => dasmaker.dasmaker(data,[]))
 $("#episopoolbutton").click(() => episopool.episopool())
 
-editor.editor(data)
+lib.lib.show('#description')
+// editor.editor(data)

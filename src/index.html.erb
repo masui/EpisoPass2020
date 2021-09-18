@@ -15,8 +15,8 @@
       <div style="padding:10px;background-color:#ffffff;">
 	<div class='topmenu'>
 	  <span id="descbutton"><div class='topmenuitem'>EpisoPass概要</div></span>
-	  <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
 	  <span id="episopoolbutton"><div class='topmenuitem'>問題作成支援</div></span>
+	  <span id="editbutton"><div class='topmenuitem'>問題編集</div></span>
 	  <span id="dasbutton"><div class='topmenuitem'>利用ページ作成</div></span>
 	  <a id="htmlbutton"><div class='topmenuitem'>利用ページ取得</div></a>
 	</div>
@@ -141,15 +141,15 @@
 
 	<blockquote>
 	  <form id="saveload">
-	    <input type="button" value="データセーブ" onclick="JSONデータセーブ()" style="margin:3px;" />
+	    <input type="button" value="データセーブ" onclick="episopool.JSONデータセーブ()" style="margin:3px;" />
 	    ここで作成したデータをJSON型式でローカルファイルにセーブします
 	    <br/>
             <input type="button" value="データロード" onclick="$('#fileload').click()"  style="margin:3px;"/>
 	    JSONデータをローカルファイルから読み込みます
 	    <br/>
-            <input type="button" value="EpisoPassページ作成" onclick="EpisoPassページ作成()"  style="margin:3px;"/>
+            <input type="button" value="EpisoPassページ作成" onclick="episopool.EpisoPassページ作成()"  style="margin:3px;"/>
 	    EpisoPassページを作成します
-            <input type="file" id="fileload" style="display:none;" accept="text/json" onclick="JSONデータロード()">
+            <input type="file" id="fileload" style="display:none;" accept="text/json" onclick="episopool.JSONデータロード()">
 	  </form>
 	</blockquote>
 	
@@ -161,10 +161,10 @@
 	
 	<blockquote>
 	  <form>
-	    <input type="button" value="ランダムに県名を追加" onclick="ランダムに回答を追加(県名リスト)">
-	    <input type="button" value="ランダムに都市名を追加" onclick="重みづけランダムに都市を追加()">
-	    <input type="button" value="ランダムに町名を追加" onclick="ランダムに回答を追加(町名リスト)">
-	    <input type="button" value="シャッフル" onclick="データシャッフル(回答リスト); リスト表示({リスト:回答リスト, フォームid:'answers', クラス:'answerinput', 改行あり:false});" >
+	    <input type="button" value="ランダムに県名を追加" onclick="episopool.ランダムに回答を追加(pool.県名リスト)">
+	    <input type="button" value="ランダムに都市名を追加" onclick="episopool.重みづけランダムに都市を追加()">
+	    <input type="button" value="ランダムに町名を追加" onclick="episopool.ランダムに回答を追加(pool.町名リスト)">
+	    <input type="button" value="シャッフル" onclick="episopool.データシャッフル(pool.回答リスト); episopool.リスト表示({リスト:pool.回答リスト, フォームid:'answers', クラス:'answerinput', 改行あり:false});" >
 	  </form>
       
 	  <form id="answers">
@@ -181,8 +181,8 @@
     
 	<blockquote>
 	  <form>
-	    <input type="button" value="ランダムに問題を追加" onclick="ランダムに問題を追加()">
-	    <input type="button" value="シャッフル" onclick="データシャッフル(問題リスト); リスト表示({リスト:問題リスト, フォームid:'questions', クラス:'qinput', 改行あり:true});" >
+	    <input type="button" value="ランダムに問題を追加" onclick="episopool.ランダムに問題を追加()">
+	    <input type="button" value="シャッフル" onclick="episopool.データシャッフル(pool.問題リスト); episopool.リスト表示({リスト:pool.問題リスト, フォームid:'questions', クラス:'qinput', 改行あり:true});" >
 	  </form>
       
 	  <form id="questions">

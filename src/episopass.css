@@ -171,3 +171,20 @@ img.qimg {
 input.qabutton {
     width: 50;
 }
+
+
+
+.answerinput {
+    margin: 1px;
+    padding: 3px 10px 3px 10px;
+}
+
+.qinput {
+    width: 500px;
+    margin: 1px;
+    padding: 3px 10px 3px 10px;
+}
+
+.check {
+    padding: 2px 15px 2px 4px;
+}
