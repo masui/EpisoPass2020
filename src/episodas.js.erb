@@ -41,6 +41,23 @@ episodas = function(data){
 	}
     };
 
+    
+    function saveEpisoPassHTML(){
+	lines = dastemplate.dastemplate.split(/\n/);
+	for(let i=0;i<lines.length;i++){
+	    if(lines[i].match(/REPLACE_THIS_LINE$/)){
+		lines[i] = `const data = ${JSON.stringify(data)}`;
+	    }
+	}
+	html = lines.join("\n")
+	let blob = new Blob([ html ], { type: 'text/html' });
+	let url = URL.createObjectURL(blob);
+	const a = $('<a>')
+	      .attr('href',url)
+	      .attr('download','RunEpisoPass.html')
+	a[0].click(); // jQueryの場合こういう処理が必要
+    }
+
     function finish(){ // DASパタン入力終了
 	// masui_secret.box.html のようなURLのときはScrapboxページに飛ぶ
 	// (EpisoBoxの仕様だが不要かも)
@@ -123,6 +140,20 @@ episodas = function(data){
 	});
 	center.append(again);
 
+	var download = $('<input>');
+	download.on('click',saveEpisoPassHTML)
+	download.attr('type','button');
+	download.attr('value','HTMLダウンロード');
+	download.css('font-size',width*0.05);
+	download.css('border-radius',width*0.015);
+	download.css('margin',width*0.01);
+	download.css('padding',width*0.02);
+	download.css('background-color','#fff');
+	download.css('border-style','solid');
+	download.css('border-width','1pt');
+	download.css('border-color','#000');
+	center.append(download);
+
 	// 生成された文字列をコピー
 	passspan.select();
 	document.execCommand("copy");
@@ -131,12 +162,14 @@ episodas = function(data){
 	    passspan.hide()
 	    show.show()
 	    again.hide()
+	    download.hide()
 	}
 	else { // DAS生成中の確認画面
 	    passspan.show()
 	    passspan.blur() // 文字列を非選択状態にする
 	    show.hide()
 	    again.show()
+	    download.show()
 	}
     }
     
