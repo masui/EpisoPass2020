@@ -33,13 +33,13 @@
 	<ul>
 	  <li><b>EpisoPass</b>&#8482; は、個人的な記憶から複雑なパスワードを生成するシステムです。</li>
 	  <li>
-	    たとえばこのような<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html"><b>EpisoPassページ</b></a>の問題に正しく答えると
+	    たとえばこの<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html"><b>EpisoPassページ</b></a>の問題に正しく答えると
 	    Amazonのパスワードが生成されます。
 	  </li>
 	  <li>
-	    EpisoPassページのデータは<b>問題編集</b>ページで作成します。
-	    上の「問題編集」で編集ページに移動して問題を作成し、
-	    「<b>EpisoPassページ作成</b>」で<b>DASパタン</b>を指定してから「ダウンロード」をクリックすると、
+	    EpisoPassページのデータは<a href='#' onclick="editor.editor()"><b>問題編集</b></a>ページで作成します。
+	    上の<a href='#' onclick="editor.editor()"><b>問題編集</b></a>ボタンから編集ページに移動して問題を作成し、
+	    <a href='#' onclick="dasmaker.dasmaker(data,editor.answer())"><b>EpisoPassページ作成</b></a>で<b>DASパタン</b>を指定してから「ダウンロード」をクリックすると、
 	    パスワードを生成するためのEpisoPassページのHTMLファイル(<code>RunEpisoPass.html</code>)を取得できます。
 	  </li>
 	  <li>
@@ -52,9 +52,9 @@
 	
 	<h3>問題を簡単に作成する</h3>
 	<ul>
-	  <li>「問題プール作成」メニューを選択すると、EpisoPass問題を作成するための問題プールを作成できます。</li>
-	  <li>問題プール作成ページで回答リストと問題リストを入力しておくと、「問題編集」メニューでそのデータを利用できます。</li>
-	  <li>問題プールデータはローカルファイルとしてセーブ/ロードできます</li>
+	  <li><a href='#' onclick="episopool.episopool()"><b>問題プール作成</b></a>メニューを選択すると、EpisoPass問題を作成するための問題データベースを作成できます。</li>
+	  <li>問題プール作成ページで回答リストと問題リストを作成しておくと、<a href='#' onclick="editor.editor()"><b>問題編集</b></a>メニューでそのデータを利用できます。</li>
+	  <li>問題プールデータはJSON型式のローカルファイルとしてセーブ/ロードできます。</li>
 	</ul>
 	
 	<h3>データの再編集</h3>
@@ -76,7 +76,7 @@
 	    ネットワークやサーバは不要です。
 	  </li>
 	  <li>
-	    ネットワークに接続されていない状況で編集ページを利用してEpisoPassページを作成/取得できますし、
+	    ネットワークに接続されていない状況で問題編集ページを利用してEpisoPassページを作成/取得できますし、
 	    EpisoPassページはどこでも動かすことができます。
 	  </li>
 	</ul>

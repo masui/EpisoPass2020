@@ -1,4 +1,4 @@
-all: compile dasmaker episodas template index pack embed
+all: compile dasmaker episodas template index pack embed scp
 
 allcp: compile dasmaker episodas template index pack embed scp cp
 
