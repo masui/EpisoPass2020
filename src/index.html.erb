@@ -30,42 +30,31 @@
       <div id="description" style="display:none;">
 	<h2>EpisoPass概要</h2>
 	
-	詳細は<a href="https://Scrapbox.io/EpisoPass">EpisoPass情報ページ</a>に記述してあります。
-	
 	<ul>
 	  <li><b>EpisoPass</b>&#8482; は、個人的な記憶から複雑なパスワードを生成するシステムです。</li>
 	  <li>
-	    たとえばこのような<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html"><b>利用ページ</b></a>の問題に正しく答えると
+	    たとえば<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html"><b>このページ</b></a>の問題に正しく答えると
 	    Amazonのパスワードが生成されます。
 	  </li>
 	  <li>
-	    <b>利用ページ</b>のデータはEpisoPass<b>編集ページ</b>で作成します。
+	    <b>利用ページ</b>のデータは<b>問題編集</b>ページで作成します。
 	    上の「問題編集」で編集ページに移動して問題を作成し、
-	    「利用ページ作成」で<b>DASパタン</b>を指定してから「利用ページ取得」をクリックすると、
-	    パスワードを生成するための利用ページのHTMLを取得OBできます。
+	    「<b>EpisoPassページ作成</b>」で<b>DASパタン</b>を指定してから「ダウンロード」をクリックすると、
+	    パスワードを生成するための利用ページのHTML(<code>RunEpisoPass.html</code>)を取得できます。
 	  </li>
 	  <li>
 	    DASとは「<a href="https://en.wikipedia.org/wiki/Draw_a_Secret">Draw-a-Secret</a>」の略で、ログイン時に描く秘密のパタンのことです。
 	    描きやすいDASパタンを登録すると
 	    利用ページでの回答選択が楽になります。
 	  </li>
+	  <li>EpisoPassの詳細は<a href="https://Scrapbox.io/EpisoPass">EpisoPass情報ページ</a>をご覧ください。</li>
 	</ul>
 	
-	<h3>ネットの利用</h3>
+	<h3>問題を簡単に作成する</h3>
 	<ul>
-	  <li>
-	    EpisoPass利用時にネット通信は行なわれません。
-	    EpisoPassのデータはどこにも保存されませんし、どこにも送られません。
-	  </li>
-	  <li>
-	    EpisoPassは<a href="EpisoPass.html">EpisoPass.html</a>という単一HTMLファイルで動作するので、
-	    ローカルマシンのブラウザで動かすことができます。
-	    ネットワークやサーバは利用されません。
-	  </li>
-	  <li>
-	    ネットワークに接続されていない状況で編集ページを利用して利用ページを作成/取得できますし、
-	    利用ページはどこでも動かすことができます。
-	  </li>
+	  <li>「問題プール作成」メニューを選択すると、EpisoPass問題を作成するための問題プールを作成できます。</li>
+	  <li>問題プール作成ページで回答リストと問題リストを入力しておくと、「問題編集」メニューでそのデータを利用できます。</li>
+	  <li>問題プールデータはローカルファイルとしてセーブ/ロードできます</li>
 	</ul>
 	
 	<h3>データの再編集</h3>
@@ -76,27 +65,20 @@
 	  </li>
 	</ul>
 	
-	<h3>問題を簡単に作成する</h3>
+	<h3>ネット通信</h3>
 	<ul>
-	  <li>「問題プール作成」メニューを選択すると、EpisoPass問題を作成するための問題プールを作成できます。</li>
-	  <li>問題プール作成ページで回答リストと問題リストを入力しておくと、「問題編集」メニューでそのデータを利用できます。</li>
-	  <li>問題プールデータはローカルファイルとしてセーブ/ロードできます</li>
-	  <!--
 	  <li>
-	    問題と回答のリストをScrapboxに用意しておけば、
-	    <a href="https://github.com/masui/EpisoQ">episoq</a>
-	    を使って問題を簡単に作成できます。
+	    EpisoPass.html利用時にネット通信は行なわれません。
 	  </li>
 	  <li>
-	    episoqは <code>npm install -g episoq</code> でインストールできます。
+	    EpisoPassは<a href="EpisoPass.html">EpisoPass.html</a>という単一HTMLファイルで動作するので、
+	    ローカルマシンのブラウザで動かすことができます。
+	    ネットワークやサーバは不要です。
 	  </li>
 	  <li>
-	    引数を指定せずにepisoqを起動するとサンプルデータが読み込まれて編集画面が表示されます。
-	    自分のScrapboxに書いたページを引数で指定することができます。
-	    <br>
-	    <code>% episoq プロジェクト名 ページ名</code>
+	    ネットワークに接続されていない状況で編集ページを利用して利用ページを作成/取得できますし、
+	    利用ページはどこでも動かすことができます。
 	  </li>
-	  -->
 	</ul>
 	
 	<h3>ブラウザ拡張機能</h3>
