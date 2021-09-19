@@ -18,6 +18,15 @@ data = {
 }
 pool = require("./samplepool.json")
 
+// localStorageに問題プールデータがあれば取得
+// (前回のプールデータが使われることになる)
+let localpoolstr = localStorage.getItem('EpisoPool')
+if(localpoolstr){
+    let localpool = JSON.parse(localpoolstr)
+    pool.問題リスト= localpool.questions
+    pool.回答リスト= localpool.answers
+}
+
 episopool.EpisoPassデータ作成()
 
 if(location.search[0] == '?'){ // 引数解釈

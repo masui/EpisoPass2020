@@ -127,7 +127,7 @@ function リスト表示(属性){
     }
 }
 
-JSONデータセーブ = function(){
+JSONデータ = function(){
     let s = "{\n"
     s += "  \"questions\": [\n"
     for(var i=0;i<pool.問題リスト.length;i++){
@@ -142,8 +142,11 @@ JSONデータセーブ = function(){
 	s += "\n"
     }
     s += "  ]\n}\n"
-    
-    let blob = new Blob([ s ], { type: 'text/json' });
+    return s
+}
+
+JSONデータセーブ = function(){
+    let blob = new Blob([ JSONデータ() ], { type: 'text/json' });
     let url = URL.createObjectURL(blob);
     const a = $('<a>')
 	  .attr('href',url)
@@ -200,9 +203,6 @@ EpisoPassデータ作成 = function(){
     データシャッフル(リスト)
     let 最大問題数 = 問題数
     if(最大問題数 > 10) 最大問題数 = 10
-    //let qlist = リスト.slice(0,最大問題数).join(';')
-    
-    //let alist = pool.回答リスト.join(';')
 
     let qas = []
     for(var i=0;i<最大問題数;i++){
@@ -212,6 +212,9 @@ EpisoPassデータ作成 = function(){
 	qas.push(o)
     }
     data.qas = qas
+
+    // localStorageに問題プールデータを格納
+    localStorage.setItem('EpisoPool',JSONデータ())
 }
 
 exports.episopool = episopool
