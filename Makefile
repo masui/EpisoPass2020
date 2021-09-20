@@ -1,4 +1,4 @@
-all: compile dasmaker episodas template index pack embed scp
+all: compile dasmaker episodas template index pack embed scp cp
 
 allcp: compile dasmaker episodas template index pack embed scp cp
 
@@ -40,4 +40,6 @@ scp:
 cp:
 	cp dist/episopass.html ../EpisoPass/public
 	cp dist/episopass.html ../EpisoPass/public/EpisoPass.html
+	cp dist/episopass.html ../EpisoPass/public/index.html
+	cp dist/episopass.html ../EpisoPass2021/index.html
 
